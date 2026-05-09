@@ -1,0 +1,2895 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>帮你选 — 攀岩鞋智能选购</title>
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  background: #f5f3ff;
+  color: #1a1a2e;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ===== Header ===== */
+.header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d1b4e 50%, #4c1d95 100%);
+  color: #fff;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+}
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.logo span { color: #c4b5fd; }
+.tagline { font-size: 13px; opacity: 0.7; margin-top: 2px; }
+
+/* ===== Hero Section ===== */
+.hero {
+  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #a78bfa 100%);
+  color: #fff;
+  text-align: center;
+  padding: 60px 24px 48px;
+}
+.hero h1 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+.hero p {
+  font-size: 17px;
+  opacity: 0.9;
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+.hero-btn {
+  display: inline-block;
+  background: #fff;
+  color: #7c3aed;
+  padding: 14px 36px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(124,58,237,0.35);
+}
+
+/* ===== Main Container ===== */
+.main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 28px;
+  justify-content: center;
+}
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e9d5ff;
+  transition: all 0.3s ease;
+}
+.progress-dot.active { background: #7c3aed; transform: scale(1.3); }
+.progress-dot.done { background: #a78bfa; }
+
+/* ===== Card ===== */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.08);
+  margin-bottom: 20px;
+}
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4c1d95;
+  margin-bottom: 8px;
+}
+.card-desc {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* ===== Options Grid ===== */
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 2px solid #e9d5ff;
+  border-radius: 12px;
+  background: #faf5ff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 15px;
+  color: #374151;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+}
+.option-btn:hover { border-color: #a78bfa; background: #f3e8ff; }
+.option-btn.selected {
+  border-color: #7c3aed;
+  background: linear-gradient(135deg, #ede9fe, #f5f3ff);
+  box-shadow: 0 2px 10px rgba(124,58,237,0.15);
+}
+.option-icon {
+  font-size: 26px;
+  flex-shrink: 0;
+  width: 44px;
+  text-align: center;
+}
+.option-text h4 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+.option-text p { font-size: 12px; color: #9ca3af; }
+
+/* ===== Two-column options ===== */
+.options-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.options-row .option-btn { text-align: center; flex-direction: column; gap: 8px; }
+.options-row .option-text h4 { font-size: 14px; }
+.options-row .option-text p { font-size: 11px; }
+
+/* ===== Nav Buttons ===== */
+.nav-btns {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: space-between;
+}
+.btn {
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+  flex: 1;
+}
+.btn-primary:hover { box-shadow: 0 4px 15px rgba(124,58,237,0.35); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-secondary {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+.btn-secondary:hover { background: #e5e7eb; }
+
+/* ===== Result Section ===== */
+.result-section { animation: fadeInUp 0.5s ease; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.shoe-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(124,58,237,0.08);
+  border-left: 4px solid #7c3aed;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.shoe-card:hover { box-shadow: 0 6px 24px rgba(124,58,237,0.15); transform: translateY(-2px); }
+.shoe-card.best-match {
+  border-left-color: #f59e0b;
+  border-left-width: 5px;
+  background: linear-gradient(135deg, #fffbeb, #fff);
+}
+.shoe-card .rank-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.shoe-card.best-match .rank-badge {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  color: #78350f;
+}
+.shoe-name { font-size: 19px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.shoe-brand { font-size: 13px; color: #7c3aed; font-weight: 600; margin-bottom: 12px; }
+.shoe-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.tag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  background: #ede9fe;
+  color: #5b21b6;
+}
+.shoe-reason {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.7;
+  padding: 12px;
+  background: #faf5ff;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.shoe-reason strong { color: #5b21b6; }
+.shoe-size-tip {
+  font-size: 13px;
+  color: #059669;
+  background: #ecfdf5;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  border-left: 3px solid #10b981;
+}
+
+/* ===== Avoid Section ===== */
+.avoid-section {
+  background: linear-gradient(135deg, #fef2f2, #fff);
+  border: 2px dashed #fca5a5;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-top: 24px;
+}
+.avoid-section h3 {
+  font-size: 16px;
+  color: #dc2626;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.avoid-item {
+  font-size: 14px;
+  color: #991b1b;
+  padding: 6px 0;
+  border-bottom: 1px dashed #fecaca;
+}
+.avoid-item:last-child { border-bottom: none; }
+
+/* ===== Shoe Diagnostic Section ===== */
+.diagnostic-section {
+  background: linear-gradient(135deg, #f0fdf4, #fff);
+  border: 2px solid #86efac;
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 28px;
+}
+.diagnostic-section h3 {
+  font-size: 17px; font-weight: 700; color: #166534; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.diagnostic-search-wrap {
+  position: relative; margin-bottom: 16px;
+}
+.diagnostic-select {
+  width: 100%; padding: 12px 16px;
+  border: 2px solid #d1d5db; border-radius: 12px; font-size: 14.5px;
+  outline: none; transition: all 0.2s; background: #fff;
+  box-sizing: border-box; cursor: pointer;
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+  padding-right: 38px;
+}
+.diagnostic-select:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.12); }
+.diagnostic-select optgroup { font-weight: 700; color: #7c3aed; font-size: 13.5px; }
+.diagnostic-select option { font-weight: 400; color: #374151; padding: 4px 8px; }
+.diag-dropdown {
+  position: absolute; top: calc(100% + 4px); left: 0; right: 0;
+  background: #fff; border: 2px solid #e5e7eb; border-radius: 10px;
+  max-height: 260px; overflow-y: auto; z-index: 100;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.diag-option {
+  padding: 10px 14px; cursor: pointer; display: flex; align-items: center; gap: 10px;
+  font-size: 14px; transition: background 0.15s; border-bottom: 1px solid #f3f4f6;
+}
+.diag-option:last-child { border-bottom: none; }
+.diag-option:hover { background: #ede9fe; }
+.diag-option .opt-brand { color: #7c3aed; font-weight: 600; font-size: 13px; min-width: 80px; }
+.diag-option .opt-name { color: #374151; flex: 1; }
+.diag-option .opt-cat { color: #9ca3af; font-size: 11.5px; }
+
+/* Diagnostic Result Card */
+.diag-result-card {
+  background: #fff; border-radius: 14px; padding: 20px; margin-top: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-left: 4px solid #22c55e;
+  animation: fadeInUp 0.35s ease; display: none;
+}
+.diag-result-card.visible { display: block; }
+.diag-result-card.verdict-bad { border-left-color: #ef4444; }
+.diag-result-card.verdict-mid { border-left-color: #f59e0b; }
+
+.diag-header {
+  display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px;
+}
+.diag-header-info h4 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin: 0 0 4px 0; }
+.diag-header-info .diag-brand-sub { font-size: 13.5px; color: #7c3aed; font-weight: 600; }
+.diag-verdict-badge {
+  padding: 6px 16px; border-radius: 20px; font-size: 13.5px; font-weight: 700;
+  white-space: nowrap;
+}
+.diag-verdict-badge.good { background: linear-gradient(135deg,#dcfce7,#bbf7d0); color:#166534; }
+.diag-verdict-badge.bad { background: linear-gradient(135deg,#fee2e2,#fecaca); color:#991b1b; }
+.diag-verdict-badge.mid { background: linear-gradient(135deg,#fef3c7,#fde68a); color:#92400e; }
+
+.diag-scores-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px;
+}
+.diag-score-item {
+  background: #f8fafc; border-radius: 10px; padding: 10px 12px; text-align: center;
+}
+.diag-score-label { font-size: 11.5px; color: #6b7280; margin-bottom: 4px; }
+.diag-score-value { font-size: 19px; font-weight: 700; }
+.diag-score-value.excellent { color: #16a34a; }
+.diag-score-value.good-val { color: #22c55e; }
+.diag-score-value.fair { color: #f59e0b; }
+.diag-score-value.poor { color: #ef4444; }
+
+.diag-analysis-block { margin-bottom: 14px; }
+.diag-analysis-title {
+  font-size: 13.5px; font-weight: 700; color: #374151; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 6px;
+}
+.diag-pros-list, .diag-cons-list { list-style: none; padding: 0; margin: 0; }
+.diag-pros-list li, .diag-cons-list li {
+  font-size: 13.5px; line-height: 1.65; padding: 5px 0; padding-left: 22px; position: relative;
+}
+.diag-pros-list li::before { content:'✅'; position:absolute; left:0; font-size:13px; }
+.diag-cons-list li::before { content:'⚠️'; position:absolute; left:0; font-size:13px; }
+
+.diag-scene-bar { margin-bottom: 14px; }
+.diag-scene-row {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 5px;
+}
+.diag-scene-label { font-size: 12.5px; color: #6b7280; min-width: 90px; white-space: nowrap; }
+.diag-scene-track {
+  flex: 1; height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden;
+}
+.diag-scene-fill {
+  height: 100%; border-radius: 4px; transition: width 0.4s ease;
+}
+.diag-scene-fill.high { background: linear-gradient(90deg,#22c55e,#86efac); }
+.diag-scene-fill.mid { background: linear-gradient(90deg,#f59e0b,#fcd34d); }
+.diag-scene-fill.low { background: linear-gradient(90deg,#ef4444,#fca5a5); }
+
+.diag-summary-text {
+  font-size: 14px; line-height: 1.75; color: #374151; padding: 14px 16px;
+  background: #f8fafc; border-radius: 10px; margin-top: 12px;
+}
+
+/* ===== Summary Banner ===== */
+.summary-banner {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: center;
+}
+.summary-item { font-size: 13px; color: #5b21b6; font-weight: 500; }
+.summary-item strong { color: #4c1d95; }
+
+/* ===== Restart Button ===== */
+.restart-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 24px;
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  text-align: center;
+}
+.restart-btn:hover { background: #e5e7eb; border-color: #9ca3af; }
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: #9ca3af;
+  font-size: 12px;
+}
+.footer a { color: #7c3aed; text-decoration: none; }
+
+/* ===== Hidden utility ===== */
+.hidden { display: none !important; }
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 28px; }
+  .card { padding: 24px 20px; }
+  .options-row { grid-template-columns: 1fr; }
+  .header-inner { flex-direction: column; gap: 6px; text-align: center; }
+  .summary-banner { flex-direction: column; align-items: flex-start; }
+}
+
+/* ===== Foot shape visual ===== */
+.foot-visual {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 16px;
+  padding: 16px;
+  background: #faf5ff;
+  border-radius: 12px;
+}
+.foot-type {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+.foot-type:hover { transform: scale(1.05); }
+.foot-type.selected { border-color: #7c3aed; background: #ede9fe; }
+.foot-svg { width: 80px; height: 90px; }
+.foot-label { font-size: 12px; margin-top: 6px; font-weight: 600; color: #4b5563; }
+.foot-sublabel { font-size: 11px; color: #9ca3af; }
+
+/* ===== Loading spinner ===== */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  color: #7c3aed;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e9d5ff;
+  border-top-color: #7c3aed;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== Info tooltip style section ===== */
+.info-box {
+  background: #eff6ff;
+  border-left: 3px solid #3b82f6;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #1e40af;
+  margin-top: 16px;
+  line-height: 1.7;
+}
+
+/* ===== Photo Upload Section (Step 1) ===== */
+.upload-section {
+  background: linear-gradient(135deg, #faf5ff, #f5f3ff);
+  border: 2px dashed #c4b5fd;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.upload-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #4c1d95;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.upload-section-desc {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 14px;
+}
+.upload-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.upload-slot {
+  position: relative;
+  aspect-ratio: 3/4;
+  border: 2px dashed #d8b4fe;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+.upload-slot:hover { border-color: #7c3aed; background: #faf5ff; }
+.upload-slot.has-image { border-style: solid; border-color: #a78bfa; }
+.upload-slot .slot-icon { font-size: 24px; margin-bottom: 4px; opacity: 0.5; }
+.upload-slot .slot-label { font-size: 11px; color: #9ca3af; text-align: center; padding: 0 6px; }
+.upload-slot .slot-hint { font-size: 10px; color: #d8b4fe; margin-top: 2px; }
+.upload-slot input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.upload-slot .preview-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.upload-slot .remove-btn {
+  position: absolute; top: 4px; right: 4px;
+  width: 22px; height: 22px;
+  background: rgba(220,38,38,0.85);
+  color: #fff; border-radius: 50%;
+  font-size: 12px; cursor: pointer;
+  display: none; align-items: center; justify-content: center;
+  z-index: 2; line-height: 1;
+}
+.upload-slot:hover .remove-btn { display: flex; }
+
+/* Analyze Button */
+.analyze-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.analyze-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+.analyze-btn:hover:not(:disabled) { box-shadow: 0 4px 15px rgba(124,58,237,0.35); transform: translateY(-1px); }
+.analyze-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.analyze-btn .btn-spinner {
+  width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: none;
+}
+.analyze-btn.is-loading .btn-spinner { display: inline-block; }
+.analyze-btn.is-loading .btn-text { display: none; }
+
+.or-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 18px 0 14px;
+  color: #b0a4cf; font-size: 12px; font-weight: 500;
+}
+.or-divider::before, .or-divider::after {
+  content: ''; flex: 1; height: 1px; background: #e9d5ff;
+}
+
+/* ===== Visual Comparison Panel ===== */
+.compare-panel {
+  margin-top: 14px;
+  animation: fadeInUp 0.35s ease;
+}
+.compare-panel-title {
+  font-size: 14px; font-weight: 700; color: #4c1d95;
+  margin-bottom: 10px; text-align: center;
+}
+.compare-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: start;
+}
+/* Left: user's photo */
+.compare-photo-box {
+  background: #fff; border: 2px solid #e9d5ff; border-radius: 12px;
+  overflow: hidden;
+}
+.compare-photo-box img {
+  width: 100%; display: block;
+}
+.compare-photo-caption {
+  padding: 8px; text-align: center;
+  font-size: 11px; color: #9ca3af;
+  background: #faf5ff; border-top: 1px solid #ede9fe;
+}
+/* Right: reference diagrams */
+.compare-ref-area {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.ref-foot-card {
+  background: #fff; border: 2px solid #e9d5ff; border-radius: 10px;
+  padding: 10px; cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 10px;
+}
+.ref-foot-card:hover { border-color: #a78bfa; background: #faf5ff; }
+.ref-foot-card.selected {
+  border-color: #7c3aed; background: linear-gradient(135deg,#ede9fe,#f5f3ff);
+  box-shadow: 0 2px 8px rgba(124,58,237,0.18);
+}
+.ref-foot-svg { width: 56px; height: 48px; flex-shrink: 0; }
+.ref-foot-info h5 {
+  font-size: 13px; font-weight: 700; color: #374151; margin: 0;
+}
+.ref-foot-info p {
+  font-size: 11px; color: #9ca3af; margin: 2px 0 0;
+}
+.ref-foot-check {
+  margin-left: auto; font-size: 16px; opacity: 0; transition: opacity 0.2s;
+  color: #7c3aed;
+}
+.ref-foot-card.selected .ref-foot-check { opacity: 1; }
+
+/* Volume selector in compare panel */
+.volume-select-row {
+  display: flex; gap: 6px; margin-top: 10px;
+}
+.volume-chip {
+  flex: 1; padding: 8px 6px; border-radius: 8px;
+  border: 1.5px solid #e9d5ff; background: #fff;
+  cursor: pointer; text-align: center; transition: all 0.2s;
+  font-family: inherit; font-size: 11px;
+}
+.volume-chip:hover { border-color: #a78bfa; }
+.volume-chip.selected {
+  border-color: #7c3aed; background: #ede9fe; color: #5b21b6; font-weight: 600;
+}
+.volume-chip .v-icon { font-size: 16px; display: block; margin-bottom: 2px; }
+.volume-chip .v-text { font-weight: 500; }
+
+/* Confirm bar */
+.confirm-bar {
+  display: flex; gap: 8px; margin-top: 14px;
+}
+.confirm-bar .confirm-btn {
+  flex: 1; padding: 11px; border-radius: 10px; border: none;
+  font-size: 14px; font-weight: 700; cursor: pointer;
+  font-family: inherit;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9); color: #fff;
+  box-shadow: 0 3px 12px rgba(124,58,237,0.3);
+  transition: all 0.25s;
+}
+.confirm-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 5px 20px rgba(124,58,237,0.4); }
+.confirm-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+.cancel-compare-btn {
+  padding: 11px 18px; border-radius: 10px; border: 1.5px solid #d1d5db;
+  background: #fff; color: #6b7280; font-size: 13px;
+  cursor: pointer; font-family: inherit; font-weight: 600;
+}
+.cancel-compare-btn:hover { background: #f9fafb; }
+
+/* Analysis hints */
+.analysis-hint {
+  background: #fefce8; border-left: 3px solid #eab308;
+  padding: 10px 12px; border-radius: 8px;
+  font-size: 12px; color: #854d0e; margin-top: 10px;
+  line-height: 1.6;
+}
+.analysis-hint .hint-label { font-weight: 700; }
+
+/* Interactive photo marker */
+.photo-marker-layer {
+  position: relative; cursor: crosshair;
+  user-select: none; -webkit-user-select: none;
+}
+.photo-marker-layer img { display: block; width: 100%; }
+.toe-marker-dot {
+  position: absolute; width: 20px; height: 20px;
+  border-radius: 50%; background: rgba(124,58,237,0.25);
+  border: 2px solid #7c3aed;
+  transform: translate(-50%, -50%);
+  pointer-events: none; animation: markerPop 0.3s ease;
+  z-index: 5;
+}
+.toe-marker-dot::after {
+  content: '👆'; position: absolute; top: -18px; left: 50%;
+  transform: translateX(-50%); font-size: 14px;
+}
+@keyframes markerPop {
+  0% { transform: translate(-50%,-50%) scale(0); opacity:0; }
+  60% { transform: translate(-50%,-50%) scale(1.4); }
+  100% { transform: translate(-50%,-50%) scale(1); opacity:1; }
+}
+
+/* AI suggestion chip in compare panel */
+.ai-suggest-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 5px 10px; border-radius: 16px; font-size: 11px;
+  font-weight: 600; cursor: pointer; margin-top: 6px;
+  transition: all 0.2s; border: 1.5px solid;
+}
+.ai-suggest-chip.egyptian { background:#f5f3ff; color:#5b21b6; border-color:#c4b5fd; }
+.ai-suggest-chip.greek { background:#eff6ff; color:#1e40af; border-color:#bfdbfe; }
+.ai-suggest-chip.roman { background:#f0fdf4; color:#166534; border-color:#bbf7d0; }
+.ai-suggest-chip:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+/* Upload slot warning badge (for wrong angle photos) */
+.slot-warning-badge {
+  position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%);
+  white-space: nowrap;
+  background: #fef2f2; color: #dc2626; border: 1px solid #fecaca;
+  border-radius: 8px; padding: 3px 10px; font-size: 11px; font-weight: 600;
+  box-shadow: 0 2px 6px rgba(220,38,38,0.15);
+  animation: warnPopIn 0.3s ease;
+  z-index: 10; max-width: calc(100% + 20px);
+}
+@keyframes warnPopIn {
+  0% { opacity:0; transform:translateX(-50%) translateY(4px) scale(0.9); }
+  100% { opacity:1; transform:translateX(-50%) translateY(0) scale(1); }
+}
+
+/* Validation error block in compare panel */
+.val-error-block {
+  background: #fef2f2; border-left: 3.5px solid #dc2626;
+  padding: 12px 14px; border-radius: 8px; margin: 10px 0;
+  font-size: 13px; color: #991b1b; line-height: 1.55;
+}
+.val-error-block .val-title {
+  font-weight: 700; font-size: 13.5px; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 5px;
+}
+.val-error-block .val-fix-hint {
+  margin-top: 7px; padding-top: 7px; border-top: 1px dashed #fca5a5;
+  font-size: 12px; color: #b91c1c;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.analyze-btn.has-warning {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  box-shadow: 0 3px 12px rgba(245,158,11,0.35) !important;
+}
+.analyze-btn.has-warning:hover:not(:disabled) {
+  box-shadow: 0 4px 16px rgba(245,158,11,0.45) !important;
+}
+
+/* Multi-photo analysis grid */
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.photo-analysis-card {
+  background: #fafafa; border: 1.5px solid #e5e7eb;
+  border-radius: 10px; overflow: hidden;
+  transition: border-color 0.2s;
+}
+.photo-analysis-card:hover { border-color: #c4b5fd; }
+.pac-photo {
+  height: 130px; overflow: hidden;
+  background: #f3f4f6; display: flex;
+  align-items: center; justify-content: center;
+}
+.pac-photo img { width: 100%; height: 100%; object-fit: cover; }
+.pac-label {
+  padding: 6px 10px; font-size: 11px; font-weight: 600;
+  color: #6b7280; background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+}
+.pac-result {
+  padding: 8px 10px; font-size: 11px; line-height: 1.55;
+}
+.pac-empty {
+  padding: 8px 10px; font-size: 11px; color: #9ca3af;
+  font-style: italic;
+}
+
+/* Reference cards row */
+.ref-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 8px 0;
+}
+.compare-subtitle {
+  font-size: 13px; font-weight: 600; color: #374151;
+  margin: 12px 0 6px; text-align: center;
+}
+
+@media (max-width: 500px) {
+  .upload-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .upload-slot .slot-icon { font-size: 18px; }
+  .upload-slot .slot-label { font-size: 10px; }
+  .compare-layout { grid-template-columns: 1fr; }
+  .photos-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .ref-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <div>
+      <div class="logo">🧗 帮你选 <span>Climbing Shoe Picker</span></div>
+      <div class="tagline">基于脚型 · 场景 · 水平的智能攀岩鞋推荐</div>
+    </div>
+    <div id="step-indicator" style="font-size:13px;opacity:0.7;">第 1 / 5 步</div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="hero-section">
+  <h1>🧗 找到你的完美攀岩鞋</h1>
+  <p>只需回答 5 个问题，基于权威攀岩数据（Climbing.com / ClimbingHouse / Ocún 官方）为你精准推荐匹配的攀岩鞋</p>
+  <button class="hero-btn" onclick="startQuiz()">开始选鞋 →</button>
+</section>
+
+<!-- Main Quiz Area -->
+<main class="main hidden" id="quiz-area">
+
+  <!-- Progress -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- Step Container -->
+  <div id="step-container"></div>
+
+</main>
+
+<!-- Results Area -->
+<main class="main hidden" id="result-area"></main>
+
+<footer class="footer">
+  <p>数据来源：Climbing.com · ClimbingHouse · Ocún 官方 · Climb On Equipment · 各品牌官方规格</p>
+  <p style="margin-top:4px;">⚠️ 推荐仅供参考，试穿是最终标准</p>
+</footer>
+
+<script>
+// ============================================================
+// DATA - 完整鞋款数据库（来自 climbing-shoe-advisor 技能）
+// ============================================================
+
+const SHOE_DB = [
+  // === 全能型 All-Around ===
+  { id:'katana-lace', name:'Katana Lace', brand:'La Sportiva', brandFlag:'🇮🇹', category:'all-around',
+    arc:'中度', hardness:'中度', fit:'窄到中等', rubber:'XS Edge 4mm', closure:'系带',
+    material:'皮革/合成混合+内衬', stretch:'~½码', sizeAdvice:'比日常鞋小½-1码',
+    tags:['全能','运动攀','训练板'], vegan:false,
+    footMatch:{ egyptian:{lv:[3],rv:[3],hv:[1]}, greek:{lv:[2],rv:[2],hv:[1]}, roman:{lv:[1],rv:[2],hv:[1]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:2, comp:1, sportSteep:3, sportVertical:4, sportSlab:3, trad:3, crack:2, beginner:2, board:4 } },
+  { id:'miura-vs', name:'Miura VS', brand:'La Sportiva', brandFlag:'🇮🇹', category:'all-around',
+    arc:'激进', hardness:'中硬', fit:'中到高体积', rubber:'XS Edge 4mm', closure:'魔术贴',
+    material:'合成/皮革混合', stretch:'~¼-½码', sizeAdvice:'比日常鞋小1-1.5码',
+    tags:['全能','进阶','力量传导'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[2]}, greek:{lv:[2],rv:[2],hv:[1]}, roman:{lv:[1],rv:[2],hv:[1]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:2, comp:1, sportSteep:4, sportVertical:3, sportSlab:2, trad:2, crack:1, beginner:2, board:3 } },
+  { id:'vapor-v', name:'Vapor V', brand:'Scarpa', brandFlag:'🇮🇹', category:'all-around',
+    arc:'中度', hardness:'中度', fit:'通用', rubber:'XS Edge 3.5mm', closure:'魔术贴',
+    material:'微纤维+麂皮', stretch:'~½码', sizeAdvice:'比日常鞋小1码',
+    tags:['全能','希腊脚友好','舒适'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[2]}, greek:{lv:[3],rv:[4],hv:[3]}, roman:{lv:[2],rv:[3],hv:[2]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:3, comp:1, sportSteep:3, sportVertical:4, sportSlab:3, trad:2, crack:2, beginner:3, board:3 } },
+  { id:'otaki', name:'Otaki', brand:'La Sportiva', brandFlag:'🇮🇹', category:'all-around',
+    arc:'激进', hardness:'中度', fit:'中等体积', rubber:'XS Grip2 4mm', closure:'魔术贴',
+    material:'微纤维/皮革混合', stretch:'~¼-½码', sizeAdvice:'比日常鞋小1-1.5码',
+    tags:['全能','Miura继任者','灵敏度'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[2]}, greek:{lv:[2],rv:[2],hv:[1]}, roman:{lv:[1],rv:[2],hv:[1]} },
+    sceneMatch:{ boulder:3, outdoorBoulder:3, comp:2, sportSteep:4, sportVertical:3, sportSlab:2, trad:2, crack:1, beginner:2, board:3 } },
+
+  // === 抱石/竞技 Bouldering/Comp ===
+  { id:'solution-comp', name:'Solution Comp', brand:'La Sportiva', brandFlag:'🇮🇹', category:'boulder',
+    arc:'激进', hardness:'软', fit:'窄脚趾轮廓', rubber:'XS Grip2 3.5mm', closure:'魔术贴',
+    material:'微纤维合成', stretch:'几乎不延展', sizeAdvice:'买即穿尺码，小1-1.5码',
+    tags:['抱石','竞技','经典款','高不对称'], vegan:true,
+    footMatch:{ egyptian:{lv:[5],rv:[4],hv:[2]}, greek:{lv:[2],rv:[2],hv:[1]}, roman:{lv:[1],rv:[2],hv:[1]} },
+    sceneMatch:{ boulder:5, outdoorBoulder:4, comp:5, sportSteep:4, sportVertical:2, sportSlab:1, trad:1, crack:1, beginner:1, board:3 } },
+  { id:'ondra-comp', name:'Ondra Comp', brand:'La Sportiva', brandFlag:'🇮🇹', category:'boulder',
+    arc:'激进', hardness:'极软', fit:'窄脚（⚠️小趾挤压）', rubber:'XS Grip2 3.5mm', closure:'套脚',
+    material:'微纤维合成', stretch:'几乎不延展', sizeAdvice:'买即穿尺码，小1.5-2码',
+    tags:['抱石','极软','Adam Ondra签名款','⚠️小趾挤压风险'], vegan:true,
+    footMatch:{ egyptian:{lv:[4],rv:[3],hv:[1]}, greek:{lv:[1],rv:[1],hv:[0]}, roman:{lv:[0],rv:[1],hv:[0]} },
+    sceneMatch:{ boulder:5, outdoorBoulder:4, comp:5, sportSteep:3, sportVertical:1, sportSlab:0, trad:0, crack:0, beginner:0, board:2 } },
+  { id:'instinct-vs', name:'Instinct VS', brand:'Scarpa', brandFlag:'🇮🇹', category:'boulder',
+    arc:'中度', hardness:'中软', fit:'宽前掌', rubber:'XS Edge 3.5mm', closure:'魔术贴',
+    material:'皮革/合成无内衬', stretch:'~½码', sizeAdvice:'比日常鞋小1码',
+    tags:['抱石','宽前掌','舒适','全能抱石'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[3],rv:[4],hv:[4]} },
+    sceneMatch:{ boulder:4, outdoorBoulder:5, comp:3, sportSteep:3, sportVertical:2, sportSlab:1, trad:1, crack:1, beginner:2, board:4 } },
+  { id:'instinct-vsr-lv', name:'Instinct VSR LV', brand:'Scarpa', brandFlag:'🇮🇹', category:'boulder',
+    arc:'中度', hardness:'软', fit:'低体积/窄脚', rubber:'XS Grip2 3.5mm', closure:'魔术贴',
+    material:'微翻毛皮', stretch:'~¼码', sizeAdvice:'比日常鞋小1码',
+    tags:['抱石','窄脚专用','低体积版','灵敏'], vegan:false,
+    footMatch:{ egyptian:{lv:[4],rv:[3],hv:[1]}, greek:{lv:[3],rv:[2],hv:[1]}, roman:{lv:[2],rv:[2],hv:[1]} },
+    sceneMatch:{ boulder:4, outdoorBoulder:4, comp:3, sportSteep:3, sportVertical:2, sportSlab:1, trad:1, crack:1, beginner:1, board:3 } },
+  { id:'drago', name:'Drago', brand:'Scarpa', brandFlag:'🇮🇹', category:'boulder',
+    arc:'激进', hardness:'极软', fit:'通用', rubber:'XS Grip2 3.5mm', closure:'套脚',
+    material:'微纤维合成', stretch:'几乎不延展', sizeAdvice:'买即穿尺码',
+    tags:['抱石','极软','套脚式','高难度线路'], vegan:true,
+    footMatch:{ egyptian:{lv:[3],rv:[3],hv:[2]}, greek:{lv:[2],rv:[2],hv:[1]}, roman:{lv:[2],rv:[2],hv:[2]} },
+    sceneMatch:{ boulder:5, outdoorBoulder:4, comp:5, sportSteep:3, sportVertical:1, sportSlab:0, trad:0, crack:0, beginner:0, board:2 } },
+  { id:'mantra', name:'Mantra', brand:'La Sportiva', brandFlag:'🇮🇹', category:'boulder',
+    arc:'激进', hardness:'极软', fit:'弹性适应（建议缩码）', rubber:'XS Grip2 1-2mm', closure:'套脚',
+    material:'微纤维合成', stretch:'几乎不延展', sizeAdvice:'比日常鞋小1.5-2码',
+    tags:['抱石','极软','超薄底','⚠️易变松需缩码'], vegan:true,
+    footMatch:{ egyptian:{lv:[3],rv:[3],hv:[2]}, greek:{lv:[2],rv:[2],hv:[1]}, roman:{lv:[2],rv:[2],hv:[2]} },
+    sceneMatch:{ boulder:5, outdoorBoulder:4, comp:4, sportSteep:3, sportVertical:1, sportSlab:0, trad:0, crack:0, beginner:0, board:2 } },
+  { id:'skwama', name:'Skwama', brand:'La Sportiva', brandFlag:'🇮🇹', category:'boulder',
+    arc:'激进', hardness:'软', fit:'宽脚友好', rubber:'XS Grip2 3.5mm', closure:'魔术贴',
+    material:'微纤维+麂皮混合', stretch:'¼-½码', sizeAdvice:'比日常鞋小1-1.5码',
+    tags:['抱石','宽脚首选','激进鞋宽脚口碑第一','多场景'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[5]}, greek:{lv:[2],rv:[3],hv:[4]}, roman:{lv:[2],rv:[3],hv:[5]} },
+    sceneMatch:{ boulder:5, outdoorBoulder:5, comp:4, sportSteep:4, sportVertical:2, sportSlab:1, trad:1, crack:1, beginner:2, board:3 } },
+  { id:'acro-comp', name:'Acro Comp', brand:'Butora', brandFlag:'🇰🇷', category:'boulder',
+    arc:'激进', hardness:'软', fit:'宽窄双版', rubber:'NEO Fuse 4mm', closure:'魔术贴',
+    material:'无内衬皮革', stretch:'~½-1码', sizeAdvice:'比日常鞋小1-1.5码',
+    tags:['抱石','宽窄双版本','NEO橡胶','竞技'], vegan:false,
+    footMatch:{ egyptian:{lv:[3],rv:[4],hv:[4]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[2],rv:[4],hv:[4]} },
+    sceneMatch:{ boulder:5, outdoorBoulder:4, comp:5, sportSteep:3, sportVertical:1, sportSlab:0, trad:0, crack:0, beginner:1, board:2 } },
+  { id:'zenist-pro', name:'Zenist Pro', brand:'Evolv', brandFlag:'🇺🇸', category:'boulder',
+    arc:'激进', hardness:'中硬', fit:'宽/高体积', rubber:'Trax SAS 4.2mm', closure:'魔术贴',
+    material:'合成', stretch:'几乎不延展', sizeAdvice:'买即穿尺码',
+    tags:['抱石','宽脚高体积','支撑力强','Chris Sharma设计'], vegan:true,
+    footMatch:{ egyptian:{lv:[1],rv:[2],hv:[4]}, greek:{lv:[1],rv:[2],hv:[3]}, roman:{lv:[2],rv:[3],hv:[5]} },
+    sceneMatch:{ boulder:4, outdoorBoulder:3, comp:3, sportSteep:3, sportVertical:2, sportSlab:1, trad:1, crack:1, beginner:1, board:2 } },
+  { id:'phantom', name:'Phantom (Phantom Pro)', brand:'Evolv', brandFlag:'🇺🇸', category:'boulder',
+    arc:'激进', hardness:'中软', fit:'宽脚', rubber:'Trax SAS', closure:'魔术贴',
+    material:'合成', stretch:'几乎不延展', sizeAdvice:'买即穿尺码',
+    tags:['抱石','Evolv宽楦','全合成','耐磨'], vegan:true,
+    footMatch:{ egyptian:{lv:[1],rv:[2],hv:[4]}, greek:{lv:[1],rv:[2],hv:[3]}, roman:{lv:[2],rv:[3],hv:[5]} },
+    sceneMatch:{ boulder:4, outdoorBoulder:3, comp:2, sportSteep:3, sportVertical:2, sportSlab:1, trad:1, crack:1, beginner:1, board:2 } },
+  { id:'voltage-3', name:'Voltage 3', brand:'Red Chili', brandFlag:'🇩🇪', category:'boulder',
+    arc:'中度', hardness:'硬', fit:'宽脚/大体量', rubber:'XS Grip 4mm', closure:'魔术贴',
+    material:'合成', stretch:'几乎不延展', sizeAdvice:'买即穿尺码',
+    tags:['抱石','宽脚大体量','硬底支撑','德国工艺'], vegan:true,
+    footMatch:{ egyptian:{lv:[1],rv:[2],hv:[4]}, greek:{lv:[1],rv:[2],hv:[3]}, roman:{lv:[2],rv:[4],hv:[5]} },
+    sceneMatch:{ boulder:3, outdoorBoulder:3, comp:2, sportSteep:2, sportVertical:3, sportSlab:3, trad:2, crack:2, beginner:2, board:2 } },
+  { id:'d2-one', name:'D2 One', brand:'Mad Rock', brandFlag:'🇺🇸', category:'boulder',
+    arc:'激进', hardness:'硬', fit:'中等（针尖鞋头）', rubber:'Science Friction 3.0', closure:'魔术贴',
+    material:'合成', stretch:'几乎不延展', sizeAdvice:'买即穿尺码',
+    tags:['抱石','硬底','针尖鞋头','经济之选'], vegan:true,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[2]}, greek:{lv:[2],rv:[2],hv:[1]}, roman:{lv:[1],rv:[2],hv:[2]} },
+    sceneMatch:{ boulder:3, outdoorBoulder:3, comp:2, sportSteep:3, sportVertical:2, sportSlab:2, trad:1, crack:1, beginner:1, board:2 } },
+
+  // === 传统攀/裂缝 Trad/Crack ===
+  { id:'tc-pro', name:'TC Pro', brand:'La Sportiva', brandFlag:'🇮🇹', category:'trad',
+    arc:'中度', hardness:'硬', fit:'中等偏宽', rubber:'XS Edge 4mm', closure:'系带',
+    material:'皮革', stretch:'~½码', sizeAdvice:'比日常鞋小½-1码',
+    tags:['传统攀','裂缝','硬底支撑','Tommy Caldwell签名'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[2],rv:[4],hv:[4]} },
+    sceneMatch:{ boulder:1, outdoorBoulder:1, comp:0, sportSteep:2, sportVertical:4, sportSlab:5, trad:5, crack:5, beginner:2, board:2 } },
+  { id:'generator-mid', name:'Generator Mid', brand:'Scarpa', brandFlag:'🇮🇹', category:'trad',
+    arc:'中性', hardness:'极硬', fit:'厚鞋头保护（⚠️不适合细裂缝）', rubber:'XS Edge+M70', closure:'系带',
+    material:'皮革+加固', stretch:'~½码', sizeAdvice:'比日常鞋小½-1码',
+    tags:['传统攀','极硬','裂缝防护','⚠️不适合细缝'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[2],rv:[3],hv:[3]} },
+    sceneMatch:{ boulder:0, outdoorBoulder:0, comp:0, sportSteep:1, sportVertical:3, sportSlab:4, trad:5, crack:4, beginner:1, board:1 } },
+  { id:'moccasym', name:'Moccasym', brand:'Five Ten', brandFlag:'🇺🇸', category:'trad',
+    arc:'中性', hardness:'软', fit:'通用', rubber:'Stealth C4 3.5mm', closure:'套脚',
+    material:'无内衬皮革', stretch:'~1码', sizeAdvice:'比日常鞋小1.5-2码',
+    tags:['传统攀','裂缝软鞋','经典款','大延展'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[3],rv:[4],hv:[4]} },
+    sceneMatch:{ boulder:1, outdoorBoulder:1, comp:0, sportSteep:1, sportVertical:2, sportSlab:3, trad:4, crack:5, beginner:2, board:1 } },
+  { id:'aspect', name:'Aspect', brand:'Black Diamond', brandFlag:'🇺🇸', category:'trad',
+    arc:'中性', hardness:'中硬', fit:'通用', rubber:'NeoFriction Force 4.3mm', closure:'系带',
+    material:'合成', stretch:'几乎不延展', sizeAdvice:'买即穿尺码',
+    tags:['传统攀','运动攀','BD品质','通用'], vegan:true,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[2],rv:[3],hv:[3]} },
+    sceneMatch:{ boulder:1, outdoorBoulder:2, comp:0, sportSteep:2, sportVertical:4, sportSlab:5, trad:4, crack:4, beginner:3, board:2 } },
+  { id:'niad-vcs', name:'NIAD VCS', brand:'Five Ten', brandFlag:'🇺🇸', category:'trad',
+    arc:'中性', hardness:'中硬', fit:'窄前掌+宽后跟', rubber:'Stealth C4 3.5mm', closure:'魔术贴',
+    material:'无内衬皮革', stretch:'~1码', sizeAdvice:'比日常鞋小1.5码（⚠️新版偏小可能需买大1-2码）',
+    tags:['传统攀','FiveTen经典','⚠️新版尺码偏窄'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[2],hv:[2]}, greek:{lv:[2],rv:[2],hv:[2]}, roman:{lv:[1],rv:[2],hv:[2]} },
+    sceneMatch:{ boulder:1, outdoorBoulder:1, comp:0, sportSteep:2, sportVertical:3, sportSlab:4, trad:4, crack:4, beginner:2, board:2 } },
+
+  // === 入门 Beginner ===
+  { id:'tarantulace', name:'Tarantulace', brand:'La Sportiva', brandFlag:'🇮🇹', category:'beginner',
+    arc:'中性', hardness:'中硬', fit:'宽前掌', rubber:'FriXion RS 5mm', closure:'系带',
+    material:'合成', stretch:'几乎不延展', sizeAdvice:'比日常鞋小0.5-1码',
+    tags:['入门','性价比','宽前掌','舒适'], vegan:true,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[3],rv:[4],hv:[5]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:2, comp:0, sportSteep:2, sportVertical:3, sportSlab:4, trad:3, crack:3, beginner:5, board:3 } },
+  { id:'origin', name:'Origin', brand:'Scarpa', brandFlag:'🇮🇹', category:'beginner',
+    arc:'中性', hardness:'中硬', fit:'通用', rubber:'Vision', closure:'系带',
+    material:'合成', stretch:'几乎不延展', sizeAdvice:'比日常鞋小0.5-1码',
+    tags:['入门','Scarpa入门款','舒适耐穿'], vegan:true,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[2],rv:[3],hv:[3]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:2, comp:0, sportSteep:2, sportVertical:3, sportSlab:4, trad:3, crack:3, beginner:5, board:3 } },
+  { id:'endeavor', name:'Endeavor', brand:'Butora', brandFlag:'🇰🇷', category:'beginner',
+    arc:'中性', hardness:'中硬', fit:'宽窄双版', rubber:'F5', closure:'系带',
+    material:'合成', stretch:'几乎不延展', sizeAdvice:'买即穿尺码',
+    tags:['入门','宽窄双版','性价比'], vegan:true,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[4]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[2],rv:[4],hv:[5]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:2, comp:0, sportSteep:2, sportVertical:3, sportSlab:3, trad:2, crack:2, beginner:4, board:2 } },
+  { id:'defy', name:'Defy', brand:'Evolv', brandFlag:'🇺🇸', category:'beginner',
+    arc:'中性', hardness:'中软', fit:'通用', rubber:'Trax SAS', closure:'魔术贴',
+    material:'合成', stretch:'几乎不延展', sizeAdvice:'买即穿尺码',
+    tags:['入门','魔术贴方便','Vegan'], vegan:true,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[2],rv:[3],hv:[3]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:2, comp:0, sportSteep:2, sportVertical:2, sportSlab:3, trad:2, crack:2, beginner:5, board:2 } },
+  { id:'momentum', name:'Momentum', brand:'Black Diamond', brandFlag:'🇺🇸', category:'beginner',
+    arc:'中性', hardness:'中硬', fit:'通用', rubber:'NeoFriction 4.3mm', closure:'魔术贴',
+    material:'合成针织', stretch:'几乎不延展', sizeAdvice:'买即穿尺码',
+    tags:['入门','BD品质','针织鞋面','Vegan'], vegan:true,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[2],rv:[3],hv:[3]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:2, comp:0, sportSteep:2, sportVertical:3, sportSlab:4, trad:3, crack:3, beginner:5, board:2 } },
+  { id:'jett-s', name:'Jett S', brand:'Ocún', brandFlag:'🇨🇿', category:'beginner',
+    arc:'中性偏中度', hardness:'半硬', fit:'窄楦但弹性面料适配宽脚', rubber:'CAT 1.5 4mm', closure:'魔术贴',
+    material:'微纤维', stretch:'~¼码', sizeAdvice:'比日常鞋小0.5-1码',
+    tags:['入门','Ocún','弹性面料','性价比'], vegan:true,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[2]}, greek:{lv:[2],rv:[3],hv:[2]}, roman:{lv:[2],rv:[3],hv:[3]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:2, comp:0, sportSteep:2, sportVertical:3, sportSlab:3, trad:2, crack:2, beginner:4, board:3 } },
+
+  // === Evolv 扩充 ===
+  { id:'shaman', name:'Shaman', brand:'Evolv', brandFlag:'🇺🇸', category:'boulder',
+    arc:'激进', hardness:'软', fit:'宽脚/高体积', rubber:'Trax SAS 4.2mm', closure:'魔术贴',
+    material:'合成皮革混合', stretch:'~½码', sizeAdvice:'买即穿尺码或小½码',
+    tags:['抱石','宽脚神鞋','Downward Dog设计','高脚背友好','Evolv口碑最佳'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[5]}, greek:{lv:[2],rv:[3],hv:[4]}, roman:{lv:[3],rv:[4],hv:[5]} },
+    sceneMatch:{ boulder:5, outdoorBoulder:4, comp:4, sportSteep:3, sportVertical:2, sportSlab:1, trad:1, crack:1, beginner:2, board:3 } },
+  { id:'kronos', name:'Kronos', brand:'Evolv', brandFlag:'🇺🇸', category:'boulder',
+    arc:'激进', hardness:'中软', fit:'中等偏窄', rubber:'Trax SAS 4mm', closure:'魔术贴',
+    material:'合成+麂皮', stretch:'~¼码', sizeAdvice:'买即穿尺码，小½-1码',
+    tags:['抱石','精准踩点','不对称鞋头','进阶首选'], vegan:false,
+    footMatch:{ egyptian:{lv:[4],rv:[3],hv:[2]}, greek:{lv:[3],rv:[2],hv:[1]}, roman:{lv:[2],rv:[2],hv:[2]} },
+    sceneMatch:{ boulder:4, outdoorBoulder:4, comp:4, sportSteep:4, sportVertical:2, sportSlab:1, trad:1, crack:1, beginner:1, board:3 } },
+  { id:'agro', name:'Agro', brand:'Evolv', brandFlag:'🇺🇸', category:'boulder',
+    arc:'激进',硬度:'极软', fit:'低体积/窄脚', rubber:'Trax SAS', closure:'套脚',
+    material:'微纤维合成', stretch:'几乎不延展', sizeAdvice:'小1.5-2码',
+    tags:['抱石','极软套脚','竞技款','⚠️窄脚专用','高难度线路'], vegan:true,
+    footMatch:{ egyptian:{lv:[4],rv:[3],hv:[1]}, greek:{lv:[3],rv:[2],hv:[0]}, roman:{lv:[1],rv:[1],hv:[0]} },
+    sceneMatch:{ boulder:5, outdoorBoulder:4, comp:5, sportSteep:3, sportVertical:1, sportSlab:0, trad:0, crack:0, beginner:0, board:2 } },
+  { id:'nighthawk', name:'Nighthawk', brand:'Evolv', brandFlag:'🇺🇸', category:'all-around',
+    arc:'中度', hardness:'中度', fit:'通用偏宽', rubber:'Trax SAS 4mm', closure:'系带',
+    material:'合成+麂皮', stretch:'~½码', sizeAdvice:'小½-1码',
+    tags:['全能','舒适耐操','训练板利器','全场景适用'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[3],rv:[4],hv:[4]} },
+    sceneMatch:{ boulder:3, outdoorBoulder:3, comp:1, sportSteep:3, sportVertical:4, sportSlab:3, trad:3, crack:3, beginner:3, board:5 } },
+  { id:'evolv-kira', name:'Kira', brand:'Evolv', brandFlag:'🇺🇸', category:'all-around',
+    arc:'中度', hardness:'中软', fit:'女性楦/窄脚友好', rubber:'Trax SAS', closure:'魔术贴',
+    material:'微纤维', stretch:'~¼码', sizeAdvice:'小½-1码',
+    tags:['全能','女款/窄脚楦','轻量化','舒适'], vegan:true,
+    footMatch:{ egyptian:{lv:[3],rv:[3],hv:[2]}, greek:{lv:[3],rv:[4],hv:[2]}, roman:{lv:[2],rv:[2],hv:[1]} },
+    sceneMatch:{ boulder:3, outdoorBoulder:3, comp:2, sportSteep:3, sportVertical:4, sportSlab:3, trad:2, crack:2, beginner:3, board:4 } },
+
+  // === Tenaya（西班牙品牌） ===
+  { id:'oasi', name:'Oasi', brand:'Tenaya', brandFlag:'🇪🇸', category:'all-around',
+    arc:'中度',硬度:'中软', fit:'自适应（中等到宽）', rubber:'TST Plus 4mm', closure:'魔术贴',
+    material:'微纤维+内衬', stretch:'~¼码', sizeAdvice:'小½-1码',
+    tags:['全能','Tenaya王牌','自适应鞋面','舒适度极高','性价比之选'], vegan:true,
+    footMatch:{ egyptian:{lv:[3],rv:[3],hv:[3]}, greek:{lv:[3],rv:[4],hv:[3]}, roman:{lv:[3],rv:[4],hv:[4]} },
+    sceneMatch:{ boulder:4, outdoorBoulder:4, comp:2, sportSteep:3, sportVertical:4, sportSlab:3, trad:3, crack:3, beginner:3, board:5 } },
+  { id:'iati', name:'Iati', brand:'Tenaya', brandFlag:'🇪🇸', category:'boulder',
+    arc:'激进', hardness:'软', fit:'中等体积', rubber:'TST Xtra 3.5mm', closure:'魔术贴',
+    material:'微纤维合成', stretch:'~¼码', sizeAdvice:'小1-1.5码',
+    tags:['抱石','Tenaya竞技款','灵敏度高','非对称鞋头'], vegan:true,
+    footMatch:{ egyptian:{lv:[4],rv:[3],hv:[2]}, greek:{lv:[3],rv:[3],hv:[2]}, roman:{lv:[2],rv:[2],hv:[2]} },
+    sceneMatch:{ boulder:5, outdoorBoulder:4, comp:4, sportSteep:4, sportVertical:2, sportSlab:1, trad:1, crack:1, beginner:1, board:3 } },
+  { id:'tarifa', name:'Tarifa', brand:'Tenaya', brandFlag:'🇪🇸', category:'beginner',
+    arc:'中性', hardness:'中硬', fit:'通用', rubber:'TST Basic 4.5mm', closure:'魔术贴',
+    material:'合成', stretch:'几乎不延展', sizeAdvice:'小0.5-1码',
+    tags:['入门','Tenaya入门','耐用','Vegan','性价比'], vegan:true,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[2],rv:[3],hv:[3]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:2, comp:0, sportSteep:2, sportVertical:3, sportSlab:4, trad:3, crack:3, beginner:5, board:3 } },
+  { id:'mastia', name:'Mastia', brand:'Tenaya', brandFlag:'🇪🇸', category:'boulder',
+    arc:'激进', hardness:'极软', fit:'低到中等体积', rubber:'TST Xtra 3.5mm', closure:'魔术贴',
+    material:'微纤维合成', stretch:'几乎不延展', sizeAdvice:'小1.5-2码',
+    tags:['抱石','极软','Tenaya旗舰','灵敏度顶级','⚠️需适应期'], vegan:true,
+    footMatch:{ egyptian:{lv:[3],rv:[3],hv:[2]}, greek:{lv:[2],rv:[2],hv:[1]}, roman:{lv:[1],rv:[1],hv:[1]} },
+    sceneMatch:{ boulder:5, outdoorBoulder:4, comp:5, sportSteep:3, sportVertical:1, sportSlab:0, trad:0, crack:0, beginner:0, board:2 } },
+
+  // === So iLL（美国潮牌） ===
+  { id:'runner-lv', name:'The Runner LV', brand:'So iLL', brandFlag:'🇺🇸', category:'beginner',
+    arc:'中性', hardness:'中硬', fit:'低体积/窄脚', rubber:'Dark Matter 4mm', closure:'系带',
+    material:'合成+麂皮', stretch:'~¼码', sizeAdvice:'小0.5-1码',
+    tags:['入门','So iLL经典','训练板神器','耐操','LV版适合窄脚'], vegan:false,
+    footMatch:{ egyptian:{lv:[3],rv:[3],hv:[2]}, greek:{lv:[3],rv:[3],hv:[2]}, roman:{lv:[2],rv:[2],hv:[1]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:2, comp:0, sportSteep:2, sportVertical:3, sportSlab:4, trad:2, crack:2, beginner:5, board:5 } },
+  { id:'street-lv', name:'Street LV', brand:'So iLL', brandFlag:'🇺🇸', category:'boulder',
+    arc:'中度', hardness:'软', fit:'低体积', rubber:'Dark Matter 3.8mm', closure:'魔术贴',
+    material:'微纤维合成', stretch:'~¼码', sizeAdvice:'小1-1.5码',
+    tags:['抱石','日常可穿风格','灵敏度好','街头美学','LV窄脚版'], vegan:true,
+    footMatch:{ egyptian:{lv:[4],rv:[3],hv:[1]}, greek:{lv:[3],rv:[2],hv:[1]}, roman:{lv:[2],rv:[1],hv:[0]} },
+    sceneMatch:{ boulder:4, outdoorBoulder:3, comp:2, sportSteep:3, sportVertical:2, sportSlab:2, trad:1, crack:1, beginner:2, board:3 } },
+
+  // === Boreal（西班牙老牌） ===
+  { id:'joker', name:'Joker Velcro', brand:'Boreal', brandFlag:'🇪🇸', category:'beginner',
+    arc:'中性', hardness:'硬', fit:'宽脚友好', rubber:'Zen 5mm', closure:'魔术贴',
+    material:'合成', stretch:'几乎不延展', sizeAdvice:'小0.5-1码',
+    tags:['入门','Boreal经典','超宽楦','耐操','健身房首选'], vegan:true,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[4]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[3],rv:[5],hv:[5]} },
+    sceneMatch:{ boulder:2, outdoorBoulder:2, comp:0, sportSteep:1, sportVertical:3, sportSlab:4, trad:3, crack:3, beginner:5, board:3 } },
+  { id:'ninja', name:'Ninja', brand:'Boreal', brandFlag:'🇪🇸', category:'all-around',
+    arc:'中度', hardness:'中度', fit:'通用', rubber:'Zen 4mm', closure:'系带',
+    material:'合成', stretch:'~½码', sizeAdvice:'小0.5-1码',
+    tags:['全能','Boreal全能王','对称鞋头','舒适度高','多用途'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[3],rv:[3],hv:[3]}, roman:{lv:[3],rv:[4],hv:[4]} },
+    sceneMatch:{ boulder:3, outdoorBoulder:3, comp:1, sportSteep:3, sportVertical:4, sportSlab:3, trad:3, crack:3, beginner:3, board:4 } },
+  { id:'diabola', name:'Diabola', brand:'Boreal', brandFlag:'🇪🇸', category:'boulder',
+    arc:'激进', hardness:'软', fit:'中等偏宽', rubber:'Fusion 3.5mm', closure:'魔术贴',
+    material:'合成+麂皮', stretch:'~½码', sizeAdvice:'小1-1.5码',
+    tags:['抱石','Boreal旗舰','软底灵敏','宽脚可选','性价比高'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[4]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[3],rv:[4],hv:[4]} },
+    sceneMatch:{ boulder:4, outdoorBoulder:4, comp:3, sportSteep:3, sportVertical:2, sportSlab:2, trad:1, crack:1, beginner:2, board:3 } },
+
+  // === Unparallel（中国品牌，崛起中） ===
+  { id:'up-mocc', name:'Up Mocc', brand:'Unparallel', brandFlag:'🇨🇳', category:'trad',
+    arc:'中性',硬度:'软', fit:'通用偏宽', rubber:'XS Grip2 3.5mm', closure:'套脚',
+    material:'无内衬合成', stretch:'~½-1码', sizeAdvice:'小1.5-2码',
+    tags:['传统攀','裂缝软鞋','国货之光','大延展'], vegan:true,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[4]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[3],rv:[4],hv:[5]} },
+    sceneMatch:{ boulder:1, outdoorBoulder:1, comp:0, sportSteep:1, sportVertical:2, sportSlab:3, trad:4, crack:5, beginner:2, board:1 } },
+  { id:'up-lace', name:'Up Lace', brand:'Unparallel', brandFlag:'🇨🇳', category:'all-around',
+    arc:'中度', hardness:'中度', fit:'通用',橡胶:'XS Grip2 4mm', closure:'系带',
+    material:'合成+麂皮', stretch:'~½码', sizeAdvice:'小0.5-1码',
+    tags:['全能','国货精品','性价比','全场景适用'], vegan:false,
+    footMatch:{ egyptian:{lv:[2],rv:[3],hv:[3]}, greek:{lv:[2],rv:[3],hv:[3]}, roman:{lv:[2],rv:[3],hv:[3]} },
+    sceneMatch:{ boulder:3, outdoorBoulder:3, comp:1, sportSteep:3, sportVertical:4, sportSlab:3, trad:3, crack:3, beginner:3, board:4 } },
+];
+
+// 避坑数据库
+const AVOID_DB = [
+  { shoe:'Ondra Comp / Mantra', reason:'极软套脚式 + 窄脚楦，罗马脚前掌全面受压，宽脚根本穿不进去', brands:['La Sportiva'] },
+  { shoe:'Solution Comp（窄脚专用）', reason:'高不对称鞋头 + 窄趾盒，罗马脚三趾齐平会严重挤压', brands:['La Sportiva'] },
+  { shoe:'D2 One（针尖鞋头）', reason:'针尖形鞋头对罗马脚方型前掌极其不友好', brands:['Mad Rock'] },
+  { shoe:'NIAD VCS（新版偏窄）', reason:'Five Ten 新版尺码严重偏窄，宽脚/高脚背慎选', brands:['Five Ten'] },
+  { shoe:'Generator Mid（厚鞋头）', reason:'厚鞋头设计无法进入细裂缝，纯裂缝攀慎选', brands:['Scarpa'] },
+  { shoe:'Agro / Street LV（低体积款）', reason:'Evolv/So iLL 极软低体积鞋楦很窄，宽脚高脚背直接卡住', brands:['Evolv','So iLL'] },
+  { shoe:'Mastia（极软需适应期）', reason:'Tenaya Mastia 极软+低体积，新手穿会脚痛到怀疑人生', brands:['Tenaya'] },
+];
+
+const SCENE_MAP = {
+  'indoor-boulder':   { label:'室内抱石', key:'boulder', icon:'🏋️' },
+  'outdoor-boulder':  { label:'户外抱石', key:'outdoorBoulder', icon:'🪨' },
+  'comp':             { label:'竞技比赛', key:'comp', icon:'🏆' },
+  'sport-steep':      { label:'运动攀-仰角', key:'sportSteep', icon:'🔺' },
+  'sport-vertical':   { label:'运动攀-垂直', key:'sportVertical', icon:'📏' },
+  'sport-slab':       { label:'运动攀-板岩', key:'sportSlab', icon:'🧱' },
+  'trad':             { label:'传统攀/多段', key:'trad', icon:'⛰️' },
+  'crack':            { label:'裂缝攀爬', key:'crack', icon:'〰️' },
+  'beginner':         { label:'新手入门', key:'beginner', icon:'🌱' },
+  'training-board':   { label:'训练板', key:'board', icon:'📊' },
+};
+
+// ============================================================
+// STATE
+// ============================================================
+let currentStep = 0;
+let answers = {};
+
+const STEPS = [
+  {
+    key: 'toeType',
+    title: '你的脚趾形态是什么？',
+    desc: '这是最关键的匹配依据，决定了鞋头形状的选择',
+    options: [
+      { value:'egyptian', label:'埃及脚', sub:'大脚趾最长，其余依次递减', icon:'🦶', detail:'适合高不对称鞋头——鞋头向内侧弯曲' },
+      { value:'greek', label:'希腊脚', sub:'第二脚趾最长', icon:'🦶', detail:'需要中度对称或轻微不对称鞋头' },
+      { value:'roman', label:'罗马脚', sub:'前三趾几乎齐平，脚型较方', icon:'🦶', detail:'适合对称宽趾盒鞋头' },
+    ]
+  },
+  {
+    key: 'footVolume',
+    title: '你的脚宽和脚背如何？',
+    desc: '这决定了你需要 Low Volume 还是 High Volume 版本',
+    options: [
+      { value:'narrow-lv', label:'窄脚 + 低脚背', sub:'脚掌纤细，脚跟窄，脚背低', icon:'👤', detail:'选 LV 版本：Tenaya Iati、Scarpa Instinct VSR LV、Evolv Kronos、So iLL Street LV' },
+      { value:'regular-rv', label:'正常脚', sub:'均衡脚型，没有特别的感觉', icon:'✋', detail:'大部分标准鞋楦均可适配（Tenaya Oasi、Scarpa Vapor V、Evolv Nighthawk）' },
+      { value:'wide-hv', label:'宽脚 + 高脚背', sub:'前掌宽，脚背高，跟腱粗', icon:'🐾', detail:'选 HV / 宽楦款：Skwama、Evolv Shaman、Tenaya Oasi、Boreal Joker、Boreal Diabola' },
+    ]
+  },
+  {
+    key: 'level',
+    title: '你的攀岩水平？',
+    desc: '水平影响推荐的激进程度和硬度选择',
+    options: [
+      { value:'beginner', label:'新手', sub:'V0-V2，刚开始学', icon:'🌱', detail:'推荐中性弧度、中硬底、舒适的入门款' },
+      { value:'intermediate', label:'进阶', sub:'V3-V5，能完成基础线路', icon:'🔥', detail:'推荐中度到激进弧度，开始追求性能' },
+      { value:'advanced', label:'高手', sub:'V5+，挑战高难度', icon:'💎', detail:'推荐激进弧度、软底，最大化灵敏度' },
+    ]
+  },
+  {
+    key: 'scene',
+    title: '主要攀岩场景？（可多选）',
+    desc: '选择你最常进行的 1-2 种场景',
+    multiSelect: true,
+    options: [
+      { value:'indoor-boulder', label:'室内抱石', icon:'🏋️' },
+      { value:'outdoor-boulder', label:'户外抱石', icon:'🪨' },
+      { value:'comp', label:'竞技比赛', icon:'🏆' },
+      { value:'sport-steep', label:'运动攀·仰角', icon:'🔺' },
+      { value:'sport-vertical', label:'运动攀·垂直', icon:'📏' },
+      { value:'sport-slab', label:'运动攀·板岩', icon:'🧱' },
+      { value:'trad', label:'传统攀/多段', icon:'⛰️' },
+      { value:'crack', label:'裂缝攀爬', icon:'〰️' },
+      { value:'training-board', label:'训练板', icon:'📊' },
+    ]
+  },
+  {
+    key: 'climbingStyle',
+    title: '你的攀爬风格？',
+    desc: '这影响鞋子的软硬和闭合方式偏好',
+    options: [
+      { value:'static', label:'静态踩点型', sub:'喜欢稳稳地站住再发力', icon:'🧘', detail:'偏硬底 + 系带更好，注重支撑力和精准度' },
+      { value:'dynamic', label:'动态协调型', sub:'喜欢 dyno、跳跃、流畅移动', icon:'⚡', detail:'偏软底 + 魔术贴，注重灵敏度和灵活性' },
+      { value:'balanced', label:'综合型', sub:'两种风格都会用', icon:'⚖️', detail:'中软硬度，万能型选手' },
+    ]
+  },
+];
+
+// ============================================================
+// STEP RENDERING
+// ============================================================
+function renderStep() {
+  const step = STEPS[currentStep];
+  const container = document.getElementById('step-container');
+  const totalSteps = STEPS.length;
+
+  // Update header
+  document.getElementById('step-indicator').textContent = `第 ${currentStep + 1} / ${totalSteps} 步`;
+
+  // Render progress dots
+  let dotsHtml = '';
+  for (let i = 0; i < totalSteps; i++) {
+    const cls = i < currentStep ? 'done' : (i === currentStep ? 'active' : '');
+    dotsHtml += `<div class="progress-dot ${cls}"></div>`;
+  }
+  document.getElementById('progress-bar').innerHTML = dotsHtml;
+
+  // Build step HTML
+  let optionsHtml = '';
+  let uploadSectionHtml = '';
+
+  // Step 0 (toe type): add photo upload + AI recognition
+  if (currentStep === 0) {
+    uploadSectionHtml = buildUploadSection();
+  }
+
+  if (step.multiSelect) {
+    optionsHtml += '<div class="options-row">';
+    step.options.forEach(opt => {
+      const selected = (answers[step.key] || []).includes(opt.value) ? 'selected' : '';
+      optionsHtml += `
+        <button class="option-btn ${selected}" onclick="toggleMultiOption('${step.key}','${opt.value}')">
+          <div class="option-icon">${opt.icon}</div>
+          <div class="option-text"><h4>${opt.label}</h4></div>
+        </button>`;
+    });
+    optionsHtml += '</div>';
+  } else {
+    optionsHtml += '<div class="options">';
+    step.options.forEach(opt => {
+      const selected = answers[step.key] === opt.value ? 'selected' : '';
+      optionsHtml += `
+        <button class="option-btn ${selected}" onclick="selectOption('${step.key}','${opt.value}')">
+          <div class="option-icon">${opt.icon}</div>
+          <div class="option-text">
+            <h4>${opt.label}</h4>
+            <p>${opt.sub || ''}</p>
+            ${(opt.detail) ? `<p style="color:#7c3aed;font-size:12px;margin-top:4px;">${opt.detail}</p>` : ''}
+          </div>
+        </button>`;
+    });
+    optionsHtml += '</div>';
+  }
+
+  container.innerHTML = `
+    <div class="card result-section">
+      <div class="card-title">${step.title}</div>
+      <div class="card-desc">${step.desc}</div>
+      ${uploadSectionHtml}
+      ${optionsHtml}
+      <div class="nav-btns">
+        ${currentStep > 0 ? '<button class="btn btn-secondary" onclick="prevStep()">← 上一步</button>' : '<div></div>'}
+        <button class="btn btn-primary" id="next-btn" onclick="nextStep()" ${!answers[step.key] || (Array.isArray(answers[step.key]) && answers[step.key].length===0)?'disabled':''}>
+          ${currentStep === totalSteps - 1 ? '查看推荐结果 🎯' : '下一步 →'}
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function selectOption(key, val) {
+  answers[key] = val;
+  renderStep();
+}
+
+function toggleMultiOption(key, val) {
+  if (!answers[key]) answers[key] = [];
+  const idx = answers[key].indexOf(val);
+  if (idx >= 0) answers[key].splice(idx, 1);
+  else { answers[key].push(val); if (answers[key].length > 2) answers[key].shift(); } // max 2
+  renderStep();
+}
+
+function nextStep() {
+  if (currentStep < STEPS.length - 1) {
+    currentStep++;
+    renderStep();
+  } else {
+    showResults();
+  }
+}
+
+function prevStep() {
+  if (currentStep > 0) {
+    currentStep--;
+    renderStep();
+  }
+}
+
+// ============================================================
+// PHOTO UPLOAD & VISUAL COMPARISON (Step 1)
+// ============================================================
+
+const PHOTO_SLOTS = [
+  { key: 'top',    label: '俯视拍照', hint: '站立时从正上方拍摄', icon: '📷' },
+  { key: 'left',   label: '内侧拍摄', hint: '脚内侧水平拍摄',   icon: '📷' },
+  { key: 'right',  label: '外侧/后跟拍摄', hint: '脚外侧或后跟角度', icon: '📷' },
+];
+
+let uploadedPhotos = { top: null, left: null, right: null };
+let photoValidation = { top: null, left: null, right: null }; // validation result per slot
+let compareState = { toeType: null, footVolume: null };
+
+/** SVG diagrams for each foot type (top-down view) */
+const FOOT_SVG_DIAGRAMS = {
+  egyptian: `<svg class="ref-foot-svg" viewBox="0 0 56 48" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="28" cy="38" rx="14" ry="7" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.5"/>
+    <ellipse cx="16" cy="20" rx="4.5" ry="9" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="1.3"/>
+    <ellipse cx="23" cy="15" rx="4" ry="7" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="1.2"/>
+    <ellipse cx="30" cy="12" rx="3.5" ry="6" fill="#c4b5fd" stroke="#7c3aed" stroke-width="1.2"/>
+    <ellipse cx="36.5" cy="10" rx="3" ry="5" fill="#c4b5fd" stroke:#7c3aed" stroke-width="1.1"/>
+    <ellipse cx="42" cy="13" rx="2.8" ry="4.5" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="1"/>
+    <!-- longest big toe indicator -->
+    <text x="40" y="7" font-size="5" fill="#7c3aed" font-weight="700">←最长</text>
+  </svg>`,
+  greek: `<svg class="ref-foot-svg" viewBox="0 0 56 48" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="28" cy="38" rx="14" ry="7" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.5"/>
+    <ellipse cx="16" cy="17" rx="4.5" ry="9" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="1.3"/>
+    <ellipse cx="23" cy="11" rx="4" ry="7" fill="#c4b5fd" stroke="#7c3aed" stroke-width="1.2"/>
+    <ellipse cx="31" cy="9" rx="3.5" ry="6.5" fill="#c4b5fd" stroke="#7c3aed" stroke-width="1.2"/>
+    <ellipse cx="37.5" cy="12" rx="3" ry="5" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="1.1"/>
+    <ellipse cx="43" cy="16" rx="2.8" ry="4.5" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="1"/>
+    <!-- 2nd toe longest -->
+    <text x="29" y="5" font-size="5" fill="#7c3aed" font-weight="700">↑二趾最长</text>
+  </svg>`,
+  roman: `<svg class="ref-foot-svg" viewBox="0 0 56 48" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="28" cy="39" rx="15" ry="7.5" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.5"/>
+    <ellipse cx="15" cy="18" rx="4.5" ry="8.5" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="1.3"/>
+    <ellipse cx="23" cy="14" rx="4.5" ry="8" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="1.3"/>
+    <ellipse cx="32" cy="13" rx="4.5" ry="8" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="1.3"/>
+    <ellipse cx="40" cy="15" rx="4" ry="7" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="1.2"/>
+    <ellipse cx="46" cy="19" rx="3" ry="5.5" fill="#e9d5ff" stroke="#a78bfa" stroke-width="1"/>
+    <!-- all toes similar length -->
+    <text x="22" y="5" font-size="5" fill="#7c3aed" font-weight="700">前三趾齐平</text>
+  </svg>`
+};
+
+function buildUploadSection() {
+  const slotsHtml = PHOTO_SLOTS.map(slot => {
+    const photo = uploadedPhotos[slot.key];
+    const hasImg = !!photo;
+    return `
+      <div class="upload-slot ${hasImg?'has-image':''}" id="slot-${slot.key}" data-slot="${slot.key}">
+        ${hasImg
+          ? `<img class="preview-img" src="${photo.dataUrl}" alt="${slot.label}"><button class="remove-btn" onclick="event.stopPropagation();removePhoto('${slot.key}')">✕</button>`
+          : `<div class="slot-icon">${slot.icon}</div>
+           <div class="slot-label">${slot.label}</div>
+           <div class="slot-hint">${slot.hint}</div>`
+        }
+        <input type="file" accept="image/*" onchange="handlePhotoSelect('${slot.key}', this.files[0])">
+      </div>`;
+  }).join('');
+
+  const hasAnyPhoto = Object.values(uploadedPhotos).some(p => p !== null);
+  // Check validation status for button warning state
+  let hasValidationWarning = false;
+  if (hasAnyPhoto) {
+    for (const key of ['top','left','right']) {
+      const v = photoValidation[key];
+      if (uploadedPhotos[key] && v && !v.valid) { hasValidationWarning = true; break; }
+    }
+  }
+  // Check if comparison panel was already open
+  const hasCompare = compareState.toeType || document.getElementById('compare-panel');
+
+  return `
+    <div class="upload-section" id="upload-section">
+      <div class="upload-section-title">📸 拍照对比识别（推荐）</div>
+      <div class="upload-section-desc">上传你的脚部照片，和标准脚型图做对比——比纯文字选择更准确！</div>
+      <div class="upload-grid" id="upload-slots">
+        ${slotsHtml}
+      </div>
+      <div class="analyze-bar">
+        <button class="analyze-btn ${hasAnyPhoto?(hasValidationWarning?'has-warning':''):'disabled'}" id="analyze-btn"
+                onclick="startVisualCompare()" ${hasAnyPhoto?'':'disabled'}>
+          <span class="btn-spinner"></span>
+          <span class="btn-text">🔍 开始对比分析</span>
+        </button>
+      </div>
+      <div id="analysis-output"></div>
+    </div>
+    <div class="or-divider"><span>或者直接手动选择 ↓</span></div>
+  `;
+}
+
+function handlePhotoSelect(slotKey, file) {
+  if (!file) return;
+  if (!file.type.startsWith('image/')) return;
+  if (file.size > 8 * 1024 * 1024) { alert('图片太大啦，请控制在 8MB 以内'); return; }
+  const reader = new FileReader();
+  reader.onload = async (e) => {
+    const dataUrl = e.target.result;
+    uploadedPhotos[slotKey] = { dataUrl, name: file.name };
+
+    // Run angle validation immediately after upload
+    const result = await validatePhotoAngle(dataUrl, slotKey);
+    photoValidation[slotKey] = result;
+
+    renderStep();
+
+    // Show inline warning if photo doesn't match expected angle (delay for DOM to update)
+    setTimeout(() => showSlotWarning(slotKey, result), 50);
+  };
+  reader.readAsDataURL(file);
+}
+
+function removePhoto(slotKey) {
+  uploadedPhotos[slotKey] = null;
+  photoValidation[slotKey] = null;
+  renderStep();
+}
+
+// ============================================================
+// PHOTO ANGLE VALIDATION
+// ============================================================
+
+/**
+ * Validate that a photo matches the expected angle for its slot.
+ * Returns { valid: bool, confidence: number(0-100), reasons: string[], angleGuess: string }
+ */
+function validatePhotoAngle(dataUrl, expectedSlot) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const W=160, H=200;
+        canvas.width=W; canvas.height=H;
+        ctx.drawImage(img,0,0,W,H);
+        const data=ctx.getImageData(0,0,W,H).data;
+
+        // Build foot mask
+        const mask=new Uint8Array(W*H);
+        let minX=W,maxX=0,minY=H,maxY=0,totalFoot=0;
+        for(let y=0;y<H;y++) for(let x=0;x<W;x++){
+          const i=(y*W+x)*4,bright=(data[i]+data[i+1]+data[i+2])/3;
+          if(bright<220&&data[i+3]>40){mask[y*W+x]=1;totalFoot++;minX=Math.min(minX,x);maxX=Math.max(maxX,x);minY=Math.min(minY,y);maxY=Math.max(maxY,y);}
+        }
+        if(totalFoot<150){ resolve({valid:true,confidence:0,reasons:['图片太空无法判断'],angleGuess:'unknown'}); return; }
+
+        const fw=maxX-minX,fh=maxY-minY;
+        const aspect=fw/fh; // >1 = landscape (top-down), <1 = portrait (side view)
+        const density=totalFoot/(fw*fh);
+        const imgAspect=img.width/Math.max(img.height,1); // original image aspect
+
+        // --- Feature extraction ---
+
+        // 1. Toe protrusion score (irregularity at top of bounding box)
+        let toeIrregularity=0;
+        const toeEnd=minY+fh*0.35;
+        if(toeEnd>minY){
+          const topEdges=[];
+          for(let y=minY;y<=Math.min(toeEnd,H-1);y++){
+            let leftE=-1,rightE=-1;
+            for(let x=minX;x<=maxX;x++){if(mask[y*W+x]===1){if(leftE<0)leftE=x;rightE=x;}}
+            if(leftE>=0){topEdges.push(rightE-leftE);}
+          }
+          if(topEdges.length>2){
+            // Irregularity = coefficient of variation of top-edge widths
+            const avg=topEdges.reduce((a,b)=>a+b,0)/topEdges.length;
+            const variance=topEdges.reduce((a,w)=>a+(w-avg)**2,0)/topEdges.length;
+            toeIrregularity=Math.sqrt(variance)/(avg||1); // higher = more irregular = toes visible
+          }
+        }
+
+        // 2. Arch concavity score (for side views)
+        let archScore=0;
+        if(fh>30){
+          const edges=[];
+          for(let y=Math.round(minY+fh*0.25);y<=Math.round(minY+fh*0.70);y++){
+            let ex=-1;
+            for(let x=minX;x<=maxX;x++){if(mask[y*W+x]===1){ex=x;break;}}
+            if(ex>=0)edges.push(ex-minX);
+          }
+          if(edges.length>5){
+            const minE=Math.min(...edges),maxE=Math.max(...edges);
+            archScore=(maxE-minE)/fw; // deeper arch = higher
+          }
+        }
+
+        // 3. Vertical fill ratio (how much of image height foot occupies)
+        const vertFill=fh/H;
+
+        // 4. Heel presence at bottom (for lateral view)
+        let heelPresence=0;
+        if(fh>20){
+          function wAt(ty){let l=-1,r=-1;const ry=Math.round(ty);for(let x=minX;x<=maxX;x++)if(mask[ry*W+x]===1){if(l<0)l=x;r=x;}return l>=0?r-l:0;}
+          const wLower=wAt(minY+fh*0.80)+wAt(minY+fh*0.90);
+          const wMid=wAt(minY+fh*0.50);
+          heelPresence=wLower/(2*Math.max(wMid,1));
+        }
+
+        // 5. Top-heavy vs bottom-heavy distribution
+        let topHalfPixels=0,botHalfPixels=0;
+        const midY=Math.round((minY+maxY)/2);
+        for(let y=minY;y<=maxY;y++) for(let x=minX;x<=maxX;x++){
+          if(mask[y*W+x]===1){
+            if(y<midY) topHalfPixels++; else botHalfPixels++;
+          }
+        }
+        const topBotRatio=topHalfPixels/Math.max(botHalfPixels,1);
+
+        // --- Classification ---
+        // CRITICAL: Toe visibility is the STRONGEST signal, regardless of aspect ratio.
+        // A top-down photo can be portrait (tall phone camera) or landscape.
+        const reasons=[];
+        let guess='unknown';
+        let guessConf=0;
+
+        // Primary signal: toe irregularity (protrusion pattern at top of foot shape)
+        const hasClearToes=toeIrregularity>0.15;  // clear toe bumps visible
+        const hasWeakToes=toeIrregularity>0.08;   // some irregularity but weak
+        // Secondary: arch concavity (only meaningful in side views)
+        const hasArch=archScore>0.18;
+        // Tertiary: aspect ratio as tie-breaker
+        const isLandscape=aspect>0.78;
+        const isPortrait=aspect<0.7;
+        // Heel signal
+        const hasHeel=heelPresence>0.32;
+        // Vertical fill
+        const isFullHeight=vertFill>0.55;
+
+        // === RULE 1: Clear toes visible → definitely top-down ===
+        if(hasClearToes){
+          guess='top';
+          guessConf=Math.min(70+toeIrregularity*150,97);
+          reasons.push(`🔍 检测到清晰的脚趾轮廓（不规则度=${toeIrregularity.toFixed(2)}）→ 这是<strong>俯视图</strong>`);
+          if(isPortrait) reasons.push('⚠️ 虽然图片是竖构图，但内容是俯视角度');
+        }
+        // === RULE 2: No clear toes + has arch curve → side view ===
+        else if(!hasWeakToes && hasArch){
+          if(hasHeel && heelPresence>archScore*1.2){
+            guess='lateral';
+            guessConf=Math.min(50+heelPresence*55+isFullHeight*18,88);
+            reasons.push(`🔍 检测到侧面后跟轮廓（足弓浅、后跟宽比=${heelPresence.toFixed(2)}）→ <strong>外侧/后跟视图</strong>`);
+          }else{
+            guess='medial';
+            guessConf=Math.min(50+archScore*55+isFullHeight*18,88);
+            reasons.push(`🔍 检测到内侧足弓轮廓（足弓深度=${archScore.toFixed(2)}）→ <strong>内侧视图</strong>`);
+          }
+        }
+        // === RULE 3: Weak toes + no arch → ambiguous, use aspect as hint ===
+        else if(hasWeakToes && !hasArch){
+          guess='top';  // lean toward top-down
+          guessConf=45;
+          reasons.push('检测到轻微脚趾特征，可能为俯视但不够清晰');
+        }
+        // === RULE 4: Nothing matches → unknown ===
+        else{
+          guess='unknown';
+          guessConf=20;
+          if(isPortrait) reasons.push('竖构图但未检测到明显的足弓或脚趾特征');
+          else reasons.push(`图像特征不明确（宽长比=${aspect.toFixed(2)}，无法可靠判断视角）`);
+        }
+
+        // Map slot to expected angle
+        const expectedMap={ top:'top', left:'medial', right:'lateral' };
+        const expected=expectedMap[expectedSlot];
+        // Invalid if: guess conflicts with expected AND confidence is decent enough to trust it
+        const valid=(guess===expected || guess==='unknown' || guessConf<35);
+        if(!valid){
+          const names={top:'🔝 这个槽位需要<strong>俯视图</strong>（从正上方垂直向下拍脚面，能看到5个脚趾的排列）', medial:'⬅️ 这个槽位需要<strong>内侧图</strong>（从脚的内侧水平拍摄，能看到足弓弧线）', lateral:'➡️ 这个槽位需要<strong>外侧/后跟图</strong>（从外侧或后方水平拍摄，看到后跟和脚踝）'};
+          reasons.unshift(names[expected]);
+        }
+
+        resolve({valid, confidence:guessConf, reasons, angleGuess:guess});
+      } catch(err){
+        console.warn('Validation error:',err);
+        resolve({valid:true,confidence:0,reasons:['校验出错'],angleGuess:'error'});
+      }
+    };
+    img.onerror=()=>resolve({valid:true,confidence:0,reasons:['图片加载失败'],angleGuess:'error'});
+    img.src=dataUrl;
+  });
+}
+
+/**
+ * Show inline warning badge on an upload slot
+ */
+function showSlotWarning(slotKey, result) {
+  const slotEl=document.getElementById(`slot-${slotKey}`);
+  if(!slotEl) return;
+  // Remove existing warning
+  const oldWarn=slotEl.querySelector('.slot-warning-badge');
+  if(oldWarn) oldWarn.remove();
+
+  if(result.valid || result.confidence<30) return; // no warning for weak signals
+
+  const badge=document.createElement('div');
+  badge.className='slot-warning-badge';
+  badge.innerHTML=`⚠️ ${result.reasons[0]||'照片角度可能不对'}`;
+  slotEl.appendChild(badge);
+}
+
+// Drag & drop support
+document.addEventListener('dragover', (e) => {
+  if (e.target.closest('.upload-section')) e.preventDefault();
+});
+document.addEventListener('drop', (e) => {
+  const section = e.target.closest('.upload-section');
+  if (!section) return;
+  e.preventDefault();
+  const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+  let assigned = 0;
+  for (const slot of PHOTO_SLOTS) {
+    if (!uploadedPhotos[slot.key] && files[assigned]) {
+      handlePhotoSelect(slot.key, files[assigned]);
+      assigned++;
+    }
+  }
+});
+
+// ============================================================
+// VISUAL COMPARISON ENGINE
+// ============================================================
+
+async function startVisualCompare() {
+  const btn = document.getElementById('analyze-btn');
+  const output = document.getElementById('analysis-output');
+
+  btn.classList.add('is-loading');
+  btn.disabled = true;
+
+  // Brief processing animation
+  await new Promise(r => setTimeout(r, 800));
+
+  // === VALIDATION INTERCEPTION: check each photo before analyzing ===
+  const slotNames = { top: '俯视', left: '内侧', right: '外侧/后跟' };
+  const slotHints = {
+    top: '📷 正确拍法：从正上方垂直向下拍摄脚面，能清晰看到5个脚趾的排列',
+    left: '📷 正确拍法：从脚的内侧（朝向另一只脚的那一面）水平拍摄，能看到足弓的弧线',
+    right: '📷 正确拍法：从脚的外侧/后侧水平拍摄，能看到后跟和脚踝的轮廓'
+  };
+  const invalidSlots = [];
+  const weakSlots = []; // 低置信度但未判定为invalid的照片
+  for (const key of ['top','left','right']) {
+    const v = photoValidation[key];
+    if (uploadedPhotos[key] && v) {
+      if (!v.valid) {
+        invalidSlots.push({ key, ...v });
+      } else if (v.confidence > 0 && v.confidence < 30 && v.angleGuess !== 'expected') {
+        weakSlots.push({ key, ...v });
+      }
+    }
+  }
+
+  // === HARD BLOCK: if any definitively invalid photo exists, stop analysis ===
+  if (invalidSlots.length > 0) {
+    const items = invalidSlots.map(s =>
+      `<div style="margin-bottom:8px;">
+        <strong>⚠️ ${slotNames[s.key]}图角度不匹配</strong>
+        <div style="margin-top:3px;color:#b91c1c;font-size:12.5px;">${s.reasons.join('<br>')}</div>
+        <div class="val-fix-hint">${slotHints[s.key]}</div>
+      </div>`
+    ).join('');
+    output.innerHTML = `<div class="val-error-block" style="animation:shake 0.4s ease;">
+      <div class="val-title">🛑 检测到 ${invalidSlots.length} 张照片角度不正确，分析已被拦截</div>
+      <div style="margin-top:8px;color:#6b7280;font-size:12px;">请重新拍摄对应位置的照片后再试。如果判定有误，可以删除照片重新上传。</div>
+      ${items}
+    </div>`;
+    btn.classList.remove('is-loading');
+    btn.disabled = false;
+    return; // ← 硬拦截，不执行后续分析
+  }
+
+  // === SOFT WARN: show warning for low-confidence photos but allow analysis ===
+  let warnBlockHtml = '';
+  if (weakSlots.length > 0) {
+    const items = weakSlots.map(s =>
+      `<span style="color:#d97706;">${slotNames[s.key]}</span>`
+    ).join('、');
+    warnBlockHtml = `<div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#92400e;">
+      ⚠️ <strong>${items}</strong>照片特征不太明确，分析结果可能不够准确，建议按提示重拍获得更好效果。
+    </div>`;
+  }
+
+  // Run analysis ONLY on validated photos
+  const results = { top: null, left: null, right: null };
+  if (uploadedPhotos.top && (!photoValidation.top || photoValidation.top.valid)) {
+    results.top = await runCanvasAnalysis(uploadedPhotos.top.dataUrl); // toe pattern
+  } else if (uploadedPhotos.top && photoValidation.top && !photoValidation.top.valid) {
+    results.top = '<div class="analysis-hint" style="background:#fef2f2;border-left-color:#dc2626;color:#991b1b;"><span class="hint-label" style="color:#dc2626;">❌ 已拦截：照片不是俯视图，未进行分析</span></div>';
+  }
+  if (uploadedPhotos.left && (!photoValidation.left || photoValidation.left.valid)) {
+    results.left = await analyzeMedialSide(uploadedPhotos.left.dataUrl); // arch + instep
+  } else if (uploadedPhotos.left && photoValidation.left && !photoValidation.left.valid) {
+    results.left = '<div class="analysis-hint" style="background:#fef2f2;border-left-color:#dc2626;color:#991b1b;"><span class="hint-label" style="color:#dc2626;">❌ 已拦截：照片不是内侧视角，未进行分析</span></div>';
+  }
+  if (uploadedPhotos.right && (!photoValidation.right || photoValidation.right.valid)) {
+    results.right = await analyzeLateralHeel(uploadedPhotos.right.dataUrl); // heel width
+  } else if (uploadedPhotos.right && photoValidation.right && !photoValidation.right.valid) {
+    results.right = '<div class="analysis-hint" style="background:#fef2f2;border-left-color:#dc2626;color:#991b1b;"><span class="hint-label" style="color:#dc2626;">❌ 已拦截：照片不是外侧/后跟视角，未进行分析</span></div>';
+  }
+
+  // Build comparison panel showing all uploaded photos with their analyses
+  const hasAnyPhoto = uploadedPhotos.top || uploadedPhotos.left || uploadedPhotos.right;
+
+  const photoCards = [];
+
+  if (uploadedPhotos.top) {
+    photoCards.push(`
+      <div class="photo-analysis-card">
+        <div class="pac-photo" style="position:relative;">
+          <div class="photo-marker-layer" id="photo-marker-layer-top">
+            <img src="${uploadedPhotos.top.dataUrl}" alt="俯视图">
+          </div>
+        </div>
+        <div class="pac-label">📸 俯视 · 脚趾形态</div>
+        ${results.top ? `<div class="pac-result">${results.top}</div>` : '<div class="pac-empty">未能识别</div>'}
+      </div>`);
+  }
+
+  if (uploadedPhotos.left) {
+    photoCards.push(`
+      <div class="photo-analysis-card">
+        <div class="pac-photo"><img src="${uploadedPhotos.left.dataUrl}" alt="内侧视图"></div>
+        <div class="pac-label">📸 内侧 · 足弓&脚背</div>
+        ${results.left ? `<div class="pac-result">${results.left}</div>` : '<div class="pac-empty">未能识别</div>'}
+      </div>`);
+  }
+
+  if (uploadedPhotos.right) {
+    photoCards.push(`
+      <div class="photo-analysis-card">
+        <div class="pac-photo"><img src="${uploadedPhotos.right.dataUrl}" alt="外侧后跟"></div>
+        <div class="pac-label">📸 外侧 · 后跟</div>
+        ${results.right ? `<div class="pac-result">${results.right}</div>` : '<div class="pac-empty">未能识别</div>'}
+      </div>`);
+  }
+
+  output.innerHTML = `
+    <div class="compare-panel" id="compare-panel">
+      <div class="compare-panel-title">🔍 三角度智能分析</div>
+
+      ${warnBlockHtml}
+
+      ${hasAnyPhoto ? `
+      <div class="photos-grid">${photoCards.join('')}</div>` : ''}
+
+      ${!hasAnyPhoto ? '<p style="font-size:13px;color:#9ca3af;text-align:center;padding:10px;">请至少上传一张照片来使用智能分析</p>' : ''}
+
+      <!-- Foot type reference cards (always shown when we have a top photo) -->
+      ${uploadedPhotos.top ? `
+      <div style="margin:16px 0;">
+        <div class="compare-subtitle">👀 根据俯视图判断你的脚型 → 点击最匹配的一个</div>
+        <div class="ref-row">
+          <div class="ref-foot-card" onclick="selectFootType('egyptian')" id="ref-egyptian">
+            ${FOOT_SVG_DIAGRAMS.egyptian}
+            <div class="ref-foot-info"><h5>埃及脚</h5><p>大脚趾最长</p></div>
+            <div class="ref-foot-check">✓</div>
+          </div>
+          <div class="ref-foot-card" onclick="selectFootType('greek')" id="ref-greek">
+            ${FOOT_SVG_DIAGRAMS.greek}
+            <div class="ref-foot-info"><h5>希腊脚</h5><p>二趾最长</p></div>
+            <div class="ref-foot-check">✓</div>
+          </div>
+          <div class="ref-foot-card" onclick="selectFootType('roman')" id="ref-roman">
+            ${FOOT_SVG_DIAGRAMS.roman}
+            <div class="ref-foot-info"><h5>罗马脚</h5><p>三趾齐平</p></div>
+            <div class="ref-foot-check">✓</div>
+          </div>
+        </div>
+      </div>` : ''}
+
+      <div class="volume-select-row">
+        <div class="volume-chip ${compareState.footVolume==='narrow-lv'?'selected':''}" onclick="selectVolume('narrow-lv')">
+          <span class="v-icon">👤</span><span class="v-text">窄脚+低脚背</span>
+        </div>
+        <div class="volume-chip ${compareState.footVolume==='regular-rv'?'selected':''}" onclick="selectVolume('regular-rv')">
+          <span class="v-icon">✋</span><span class="v-text">正常脚</span>
+        </div>
+        <div class="volume-chip ${compareState.footVolume==='wide-hv'?'selected':''}" onclick="selectVolume('wide-hv')">
+          <span class="v-icon">🐾</span><span class="v-text">宽脚+高脚背</span>
+        </div>
+      </div>
+
+      <!-- Combined AI summary hint -->
+      <div id="combined-hint"></div>
+
+      <div class="confirm-bar">
+        <button class="confirm-btn" id="compare-confirm-btn" onclick="applyCompareResult()" disabled>
+          ✅ 确认并继续 →
+        </button>
+        <button class="cancel-compare-btn" onclick="closeComparePanel()">取消</button>
+      </div>
+    </div>
+  `;
+
+  btn.classList.remove('is-loading');
+  btn.disabled = false;
+
+  // Setup interactive toe marker (only for top photo)
+  setupPhotoMarker();
+
+  // Build combined multi-angle summary
+  buildCombinedHint(results);
+
+  // If AI has high-confidence toe result, pre-highlight
+  if (window._lastAnalysis && window._lastAnalysis.toeConfidence > 60) {
+    const aiType = window._lastAnalysis.toePattern;
+    const refCard = document.getElementById(`ref-${aiType}`);
+    if (refCard) {
+      const badge = document.createElement('div');
+      badge.className = 'ai-suggest-chip ' + aiType;
+      badge.style.cssText = 'margin-top:6px;font-size:10px;padding:3px 8px;';
+      badge.innerHTML = `🤖 AI 建议（${Math.round(window._lastAnalysis.toeConfidence)}%）`;
+      refCard.querySelector('.ref-foot-info').after(badge);
+      refCard.style.animation = 'aiPulse 2s ease infinite';
+    }
+  }
+}
+
+/** Interactive toe marker: let user click longest toe on their photo */
+function setupPhotoMarker() {
+  const layer = document.getElementById('photo-marker-layer-top');
+  if (!layer) return;
+  let marked = false;
+
+  layer.addEventListener('click', (e) => {
+    if (marked) return;
+    const rect = layer.getBoundingClientRect();
+    const relX = (e.clientX - rect.left) / rect.width; // 0=left, 1=right
+
+    // Place visual dot
+    const dot = document.createElement('div');
+    dot.className = 'toe-marker-dot';
+    dot.style.left = ((relX) * 100) + '%';
+    dot.style.top = ((e.clientY - rect.top) / rect.height * 100) + '%';
+    layer.appendChild(dot);
+    marked = true;
+
+    let inferredType = 'roman';
+    if (relX < 0.35) inferredType = 'egyptian';
+    else if (relX < 0.60) inferredType = 'greek';
+
+    const typeNames = { egyptian:'埃及脚（大脚趾最长）', greek:'希腊脚（二趾最长）', roman:'罗马脚（三趾齐平）' };
+    showMarkerInference(inferredType, typeNames[inferredType], relX);
+
+    // Cross-validate with AI
+    if (window._lastAnalysis && window._lastAnalysis.toePattern !== 'unknown') {
+      const aiType = window._lastAnalysis.toePattern;
+      showAiAgreement(aiType, aiType === inferredType, inferredType);
+    }
+
+    selectFootType(inferredType);
+
+    const hintEl = document.getElementById('marker-hint');
+    if (hintEl) hintEl.style.display = 'none';
+    const resEl = document.getElementById('marker-result');
+    if (resEl) resEl.style.display = 'inline';
+  });
+}
+
+function showMarkerInference(type, label, relX) {
+  const panel = document.getElementById('compare-panel');
+  if (!panel) return;
+
+  const chip = document.createElement('div');
+  chip.className = `ai-suggest-chip ${type}`;
+  chip.innerHTML = `📍 你标记的位置在${relX<0.35?'左侧（大脚趾区）':relX<0.6?'中间':'右侧'} → 推断为 <strong>${label}</strong>`;
+  chip.onclick = () => selectFootType(type);
+
+  const grid = panel.querySelector('.photos-grid');
+  if (grid) grid.after(chip);
+}
+
+function showAiAgreement(aiType, agrees, userMarked) {
+  const panel = document.getElementById('compare-panel');
+  if (!panel) return;
+
+  const chip = document.createElement('div');
+  const typeNames = { egyptian:'埃及脚', greek:'希腊脚', roman:'罗马脚' };
+  const conf = window._lastAnalysis ? Math.round(window._lastAnalysis.toeConfidence) : '?';
+
+  if (agrees) {
+    chip.className = `ai-suggest-chip ${aiType}`;
+    chip.innerHTML = `🤖 AI轮廓也判定为 ${typeNames[aiType]}（${conf}%）— ✅ 一致`;
+  } else {
+    chip.className = `ai-suggest-chip ${aiType}`;
+    chip.innerHTML = `🤖 AI判定 ${typeNames[aiType]}（${conf}%），你标记 ${typeNames[userMarked]} — 以你为准`;
+  }
+
+  const hintArea = document.getElementById('combined-hint');
+  if (hintArea) hintArea.after(chip);
+}
+
+function selectFootType(type) {
+  compareState.toeType = type;
+  // Update UI selection
+  ['egyptian','greek','roman'].forEach(t => {
+    const el = document.getElementById(`ref-${t}`);
+    el.classList.toggle('selected', t === type);
+  });
+  updateConfirmBtn();
+}
+
+function selectVolume(vol) {
+  compareState.footVolume = vol;
+  document.querySelectorAll('.volume-chip').forEach(el => {
+    const v = el.getAttribute('onclick').match(/'([^']+)'/)[1];
+    el.classList.toggle('selected', v === vol);
+  });
+  updateConfirmBtn();
+}
+
+function updateConfirmBtn() {
+  const btn = document.getElementById('compare-confirm-btn');
+  if (btn) btn.disabled = !(compareState.toeType && compareState.footVolume);
+}
+
+function applyCompareResult() {
+  if (!compareState.toeType || !compareState.footVolume) return;
+  answers['toeType'] = compareState.toeType;
+  answers['footVolume'] = compareState.footVolume;
+  // Jump to step 2 (level), since we filled both step 0 and step 1
+  currentStep = 2;
+  renderStep();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function closeComparePanel() {
+  const panel = document.getElementById('compare-panel');
+  if (panel) panel.innerHTML = '';
+}
+
+// Add pulse animation for AI suggestion
+const aiPulseStyle = document.createElement('style');
+aiPulseStyle.textContent = `@keyframes aiPulse { 0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,0);} 50%{box-shadow:0 0 0 4px rgba(124,58,237,0.15);} }`;
+document.head.appendChild(aiPulseStyle);
+
+/**
+ * Analyze medial side photo — detect arch height and instep volume.
+ * Looks for concavity in mid-foot area and overall vertical profile.
+ */
+function analyzeMedialSide(dataUrl) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 140; canvas.height = 220;
+        ctx.drawImage(img, 0, 0, 140, 220);
+        const w=140, h=220;
+        const data = ctx.getImageData(0,0,w,h).data;
+
+        // Build foot mask
+        const mask = new Uint8Array(w*h);
+        let minX=w, maxX=0, minY=h, maxY=0, totalFoot=0;
+        for (let y=0;y<h;y++) for(let x=0;x<w;x++) {
+          const i=(y*w+x)*4, bright=(data[i]+data[i+1]+data[i+2])/3;
+          if(bright<220&&data[i+3]>40) { mask[y*w+x]=1; totalFoot++; minX=Math.min(minX,x); maxX=Math.max(maxX,x); minY=Math.min(minY,y); maxY=Math.max(maxY,y); }
+        }
+        if(totalFoot<300){ resolve(''); return; }
+
+        const fw=maxX-minX, fh=maxY-minY;
+
+        // Scan each row to find left edge (arch curve profile)
+        const archStart=minY+fh*0.25, archEnd=minY+fh*0.70;
+        const edges=[];
+        for(let y=Math.round(archStart);y<=Math.round(archEnd);y++){
+          let ex=-1;
+          for(let x=minX;x<=maxX;x++) { if(mask[y*w+x]===1){ex=x;break;} }
+          edges.push(ex>=0?ex-minX:null);
+        }
+
+        const smoothEdges=edges.filter(e=>e!==null);
+        if(smoothEdges.length<5){ resolve(''); return; }
+
+        const minEdge=Math.min(...smoothEdges);
+        const maxEdge=Math.max(...smoothEdges);
+        const archDepth=(maxEdge-minEdge)/fw;
+
+        // Measure instep volume (upper-middle density)
+        let instepPixels=0, instepTotal=0;
+        const iy1=Math.round(minY+fh*0.15), iy2=Math.round(minY+fh*0.45);
+        for(let y=iy1;y<=iy2;y++) for(let x=minX;x<=maxX;x++){
+          instepTotal++;
+          if(mask[y*w+x]===1) instepPixels++;
+        }
+        const instepRatio=instepTotal>0?instepPixels/instepTotal:0;
+
+        let archType='', archConfidence=0;
+        if(archDepth>0.35 && instepRatio>0.42){
+          archType='high'; archConfidence=Math.min(archDepth*180+30,95);
+        } else if(archDepth<0.18 || instepRatio<0.25){
+          archType='low'; archConfidence=Math.min((0.22-archDepth)*200+30,85);
+        } else {
+          archType='normal'; archConfidence=65;
+        }
+
+        const archNames={ high:'高足弓', normal:'正常足弓', low:'低足弓/扁平' };
+        const hints=[`🦶 足弓分析：${archNames[archType]}（置信度 ${Math.round(archConfidence)}%）`];
+        if(archType==='high') hints.push('高足弓特征明显，脚背空间需求大 → 关注鞋带款或高容积鞋（如 Tarantula / Mythos）');
+        else if(archType==='low') hints.push('低足弓/扁平倾向，需要良好支撑 → 关注中底支撑性好的款（如 TC Pro / Finale）');
+        else hints.push('标准足弓，大多数攀岩鞋都能适配');
+
+        resolve(`<div class="analysis-hint"><span class="hint-label">${hints[0]}</span><div style="margin-top:6px;">${hints.slice(1).join('<br>')}</div></div>`);
+
+        window._medialAnalysis={archType,archConfidence,archDepth,instepRatio};
+      } catch(err) { console.warn('Medial analysis error:',err); resolve(''); }
+    };
+    img.onerror=()=>resolve('');
+    img.src=dataUrl;
+  });
+}
+
+/**
+ * Analyze lateral heel photo — detect heel width and Achilles profile.
+ */
+function analyzeLateralHeel(dataUrl) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 140; canvas.height = 200;
+        ctx.drawImage(img, 0, 0, 140, 200);
+        const w=140, h=200;
+        const data = ctx.getImageData(0,0,w,h).data;
+
+        const mask=new Uint8Array(w*h);
+        let minX=w, maxX=0, minY=h, maxY=0, totalFoot=0;
+        for(let y=0;y<h;y++) for(let x=0;x<w;x++){
+          const i=(y*w+x)*4, bright=(data[i]+data[i+1]+data[i+2])/3;
+          if(bright<220&&data[i+3]>40){ mask[y*w+x]=1; totalFoot++; minX=Math.min(minX,x); maxX=Math.max(maxX,x); minY=Math.min(minY,y); maxY=Math.max(maxY,y); }
+        }
+        if(totalFoot<250){ resolve(''); return; }
+
+        const fw=maxX-minX, fh=maxY-minY;
+
+        function widthAt(ty){
+          let l=-1,r=-1;
+          const ry=Math.round(ty);
+          for(let x=minX;x<=maxX;x++){if(mask[ry*w+x]===1){if(l<0)l=x;r=x;}}
+          return l>=0?r-l:0;
+        }
+        const wHeel=(widthAt(minY+fh*0.78)+widthAt(minY+fh*0.90))/2;
+        const wMid=widthAt(minY+fh*0.40);
+        const heelAbs=wHeel/fw;
+        const heelRatio=wHeel/(2*Math.max(wMid,1));
+
+        let heelType='';
+        if(heelAbs>0.38||heelRatio>0.55) heelType='wide';
+        else if(heelAbs<0.24||heelRatio<0.32) heelType='narrow';
+        else heelType='normal';
+
+        const heelNames={ wide:'宽后跟', normal:'标准后跟', narrow:'窄后跟' };
+        const hints=[`👟 后跟分析：${heelNames[heelType]}`];
+        if(heelType==='wide') hints.push('后跟较宽，建议选后跟开口大或弹性好的款式（如 Skwama / Origin）');
+        else if(heelType==='narrow') hints.push('后跟偏窄，避免后跟杯太松的款（注意 Instinct VSR LV 等窄版）');
+        else hints.push('后跟比例标准，大部分鞋款都能贴合');
+
+        resolve(`<div class="analysis-hint"><span class="hint-label">${hints[0]}</span><div style="margin-top:6px;">${hints.slice(1).join('<br>')}</div></div>`);
+
+        window._heelAnalysis={heelType,heelAbs,heelRatio};
+      } catch(err) { console.warn('Heel analysis error:',err); resolve(''); }
+    };
+    img.onerror=()=>resolve('');
+    img.src=dataUrl;
+  });
+}
+
+/**
+ * Build combined multi-angle summary hint
+ */
+function buildCombinedHint(results) {
+  const container=document.getElementById('combined-hint');
+  if(!container) return;
+
+  const parts=[];
+  if(window._lastAnalysis&&window._lastAnalysis.toePattern!=='unknown'){
+    const names={egyptian:'埃及脚',greek:'希腊脚',roman:'罗马脚'};
+    parts.push(`脚型：<strong>${names[window._lastAnalysis.toePattern]}</strong>(置信${Math.round(window._lastAnalysis.toeConfidence)}%)`);
+  }
+  if(window._medialAnalysis){
+    const names={high:'高足弓',normal:'正常',low:'低足弓'};
+    parts.push(`足弓：<strong>${names[window._medialAnalysis.archType]}</strong>`);
+  }
+  if(window._heelAnalysis){
+    const names={wide:'宽跟',normal:'标准',narrow:'窄跟'};
+    parts.push(`后跟：<strong>${names[window._heelAnalysis.heelType]}</strong>`);
+  }
+
+  if(parts.length>=2){
+    container.innerHTML=`<div class="analysis-hint" style="background:#f0fdf4;border-left-color:#22c55e;">
+      <span class="hint-label">📋 综合三角度分析：</span>${parts.join(' | ')}
+      <br><span style="font-size:11px;color:#166534;margin-top:4px;display:inline-block;">✅ 多角度交叉验证完成</span>
+    </div>`;
+  }else if(parts.length===1){
+    container.innerHTML=`<div class="analysis-hint"><span class="hint-label">📋 当前分析：</span>${parts[0]}</div>`;
+  }
+}
+
+/**
+ * Enhanced Canvas image analysis: multi-dimensional foot shape detection.
+ * Uses contour scanning, toe protrusion detection, and width profiling.
+ */
+async function runCanvasAnalysis(dataUrl) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 160; canvas.height = 200;
+        ctx.drawImage(img, 0, 0, 160, 200);
+        const w = 160, h = 200;
+        const data = ctx.getImageData(0, 0, w, h).data;
+
+        // --- Step 1: Build binary foot mask ---
+        const mask = new Uint8Array(w * h);
+        let minX=w, maxX=0, minY=h, maxY=0, totalFoot=0;
+        for (let y = 0; y < h; y++) {
+          for (let x = 0; x < w; x++) {
+            const i = (y * w + x) * 4;
+            const bright = (data[i]+data[i+1]+data[i+2]) / 3;
+            const isFoot = bright < 220 && data[i+3] > 40;
+            mask[y*w+x] = isFoot ? 1 : 0;
+            if (isFoot) {
+              totalFoot++;
+              if (x < minX) minX = x;
+              if (x > maxX) maxX = x;
+              if (y < minY) minY = y;
+              if (y > maxY) maxY = y;
+            }
+          }
+        }
+        if (totalFoot < 200) { resolve(''); return; } // too empty
+
+        // --- Step 2: Toe contour scan — find protrusion peaks along top edge ---
+        const fw = maxX - minX, fh = maxY - minY;
+        const toeZoneEnd = Math.min(minY + fh * 0.42, maxY); // upper ~42% = toe area
+
+        // For each row in toe zone, find leftmost and rightmost foot pixel
+        const leftEdge = [], rightEdge = [];
+        for (let y = minY; y <= toeZoneEnd; y++) {
+          let l = -1, r = -1;
+          for (let x = minX; x <= maxX; x++) {
+            if (mask[y*w+x] === 1) { if (l<0) l=x; r=x; }
+          }
+          leftEdge.push(l >= 0 ? l : null);
+          rightEdge.push(r >= 0 ? r : null);
+        }
+
+        // Smooth edges and find protrusion peaks (toe tips)
+        const smooth = (arr, win=3) => {
+          const out = [];
+          for (let i = 0; i < arr.length; i++) {
+            let sum=0, cnt=0;
+            for (let j=Math.max(0,i-win); j<=Math.min(arr.length-1,i+win); j++) {
+              if (arr[j]!=null) { sum+=arr[j]; cnt++; }
+            }
+            out.push(cnt>0 ? sum/cnt : null);
+          }
+          return out;
+        };
+        const sLeft = smooth(leftEdge, 2);
+        const sRight = smooth(rightEdge, 2);
+
+        // Find peaks on each side (local maxima of outward protrusion)
+        // Left edge peaks = going leftward (smaller x), Right edge peaks = going rightward (larger x)
+        function findPeaks(edgeArr, side) {
+          const peaks = [];
+          for (let i = 2; i < edgeArr.length - 2; i++) {
+            if (edgeArr[i]==null) continue;
+            const isPeak = side==='left'
+              ? edgeArr[i] < edgeArr[i-1]-1 && edgeArr[i] < edgeArr[i+1]-1 && edgeArr[i] < edgeArr[i-2]-1 && edgeArr[i] < edgeArr[i+2]-1
+              : edgeArr[i] > edgeArr[i-1]+1 && edgeArr[i] > edgeArr[i+1]+1 && edgeArr[i] > edgeArr[i-2]+1 && edgeArr[i] > edgeArr[i+2]+1;
+            if (isPeak) peaks.push({ idx:i, val:edgeArr[i], y:minY+i });
+          }
+          return peaks;
+        }
+
+        const leftPeaks = findPeaks(sLeft, 'left');   // big toe side (usually)
+        const rightPeaks = findPeaks(sRight, 'right'); // pinky toe side
+
+        // Classify toe pattern based on peak positions
+        // Egyptian: one dominant peak on the left (big toe sticks out most)
+        // Greek: one dominant peak near center-left (2nd toe sticks out)
+        // Roman: multiple similar peaks or flat top (toes similar length)
+        let toePattern = 'unknown';
+        let toeConfidence = 0;
+        const allPeaks = [...leftPeaks.map(p=>({...p,side:'L'})), ...rightPeaks.map(p=>({...p,side:'R'}))].sort((a,b)=>a.y-b.y);
+
+        if (allPeaks.length >= 2) {
+          // Check relative prominence of first (topmost/longest) peak
+          const topPeak = allPeaks[0];
+          const secondPeak = allPeaks[1];
+          const yDiff = secondPeak.y - topPeak.y; // how much longer the top toe is
+          const xPosRatio = (topPeak.val - minX) / fw; // horizontal position (0=left, 1=right)
+
+          if (yDiff > fh * 0.12 && xPosRatio < 0.35) {
+            toePattern = 'egyptian'; toeConfidence = Math.min(yDiff/(fh*0.15)*100, 95);
+          } else if (yDiff > fh * 0.08 && xPosRatio >= 0.28 && xPosRatio < 0.55) {
+            toePattern = 'greek'; toeConfidence = Math.min(yDiff/(fh*0.10)*100, 90);
+          } else if (yDiff < fh * 0.05 || allPeaks.length >= 3) {
+            toePattern = 'roman'; toeConfidence = allPeaks.length >= 3 ? 80 : 65;
+          }
+        } else if (allPeaks.length === 1) {
+          const xPos = (allPeaks[0].val - minX) / fw;
+          toePattern = xPos < 0.35 ? 'egyptian' : 'roman';
+          toeConfidence = 55;
+        }
+
+        // --- Step 3: Width profile — measure width at different heights ---
+        const y25 = minY + fh*0.25, y50 = minY + fh*0.50, y75 = minY + fh*0.75;
+        function widthAtY(ty) {
+          let l=-1,r=-1;
+          for (let x=minX;x<=maxX;x++) if (mask[Math.round(ty)*w+x]===1){if(l<0)l=x;r=x;}
+          return l>=0?r-l:0;
+        }
+        const wToe = widthAtY(y25), wBall = widthAtY(y50), wHeel = widthAtY(y75);
+        const ballToeRatio = wToe > 0 ? wBall/wToe : 1;
+        const aspect = fw/fh;
+
+        // --- Step 4: Volume estimation ---
+        let volHint = '';
+        const density = totalFoot / (fw * fh);
+        if (ballToeRatio > 1.5 && density > 0.38) volHint = '宽脚';
+        else if (ballToeRatio > 1.3 || density > 0.30) volHint = '中等偏宽';
+        else if (aspect < 0.48 && density < 0.22) volHint = '窄长型';
+        else volHint = '标准';
+
+        // --- Step 5: Build differentiated output ---
+        const hints = [];
+        const patternNames = { egyptian:'埃及脚', greek:'希腊脚', roman:'罗马脚' };
+
+        if (toePattern !== 'unknown' && toeConfidence > 45) {
+          hints.push(`🔍 脚趾轮廓检测：图像中脚趾最突出的位置偏${toePattern==='egyptian'?'左侧（大脚趾方向）':toePattern==='greek'?'中间偏左':'均匀分布'}，<strong>${toeConfidence>70?'高度可能':'有可能'}为 ${patternNames[toePattern]}</strong>${toeConfidence>70?' ✨':''}（置信度 ${Math.round(toeConfidence)}%）`);
+        }
+        if (volHint) {
+          hints.push(`📐 脚部宽度分析：前掌与后跟宽度比 ≈ ${ballToeRatio.toFixed(1)}，判定为<strong>${volHint}</strong>${volHint.includes('宽')?'——建议关注宽楦款如 Skwama / Zenist Pro / Instinct':volHint.includes('窄')?'——适合窄楦款如 Solution Comp / Instinct VSR LV':'——大部分标准楦均可适配'}`);
+        }
+        if (aspect < 0.44) {
+          hints.push(`📏 长宽比：${aspect.toFixed(2)}，脚型偏修长`);
+        } else if (aspect > 0.58) {
+          hints.push(`📏 长宽比：${aspect.toFixed(2)}，脚型偏饱满方正`);
+        }
+
+        // Store analysis result for interactive marker
+        window._lastAnalysis = { toePattern, toeConfidence, volHint, ballToeRatio, aspect, fw, fh, minX, minY, maxX, maxY };
+
+        resolve(hints.length > 0
+          ? `<div class="analysis-hint"><span class="hint-label">💡 图像智能分析结果：</span><div style="margin-top:6px;">${hints.join('</div><div style="margin-top:6px;">')}</div></div>`
+          : '');
+      } catch (err) {
+        console.warn('Canvas analysis error:', err);
+        resolve('');
+      }
+    };
+    img.onerror = () => resolve('');
+    img.src = dataUrl;
+  });
+}
+function startQuiz() {
+  document.getElementById('hero-section').classList.add('hidden');
+  document.getElementById('quiz-area').classList.remove('hidden');
+  document.getElementById('result-area').classList.add('hidden');
+  currentStep = 0;
+  answers = {};
+  renderStep();
+}
+
+// ============================================================
+// RECOMMENDATION ENGINE
+// ============================================================
+function calculateScores() {
+  const toeType = answers.toeType;           // egyptian/greek/roman
+  const volKey = answers_footVolume_to_volKey(answers.footVolume);  // lv/rv/hv
+  const scenes = answers.scene || [];         // array of scene keys
+  const level = answers.level;               // beginner/intermediate/advanced
+  const style = answers.climbingStyle;       // static/dynamic/balanced
+
+  return SHOE_DB.map(shoe => {
+    let score = 0;
+
+    // 1. 脚型匹配得分 (权重最高: x3)
+    const footScore = shoe.footMatch[toeType]?.[volKey] || 0;
+    score += footScore * 3;
+
+    // 2. 场景匹配得分 (权重: x2)
+    let sceneTotal = 0;
+    scenes.forEach(skey => {
+      const sobj = SCENE_MAP[skey];
+      if (sobj && shoe.sceneMatch[sobj.key]) {
+        sceneTotal += shoe.sceneMatch[sobj.key];
+      }
+    });
+    const sceneAvg = scenes.length > 0 ? sceneTotal / scenes.length : 0;
+    score += sceneAvg * 2;
+
+    // 3. 水平匹配 (权重: x1)
+    const levelCat = levelCategory(level);
+    const catScore = shoe.category === levelCat ? 3 : (shoe.category === 'all-around' ? 2 : (shoe.category === 'beginner' && level==='beginner') ? 2 : 1);
+    score += catScore;
+
+    // 4. 攀爬风格加分 (权重: x1)
+    if (style === 'static' && (shoe.hardness === '硬' || shoe.hardness === '中硬')) score += 2;
+    else if (style === 'dynamic' && (shoe.hardness === '软' || shoe.hardness === '极软')) score += 2;
+    else if (style === 'balanced') score += 1;
+
+    // 5. 硬度与水平一致性
+    if (level === 'beginner' && (shoe.hardness === '中硬' || shoe.hardness === '硬')) score += 1;
+    if (level === 'advanced' && (shoe.hardness === '软' || shoe.hardness === '极软')) score += 1;
+
+    return { ...shoe, score: Math.round(score * 10) / 10 };
+  }).sort((a, b) => b.score - a.score);
+}
+
+function answers_footVolume_to_volKey(val) {
+  if (val === 'narrow-lv') return 'lv';
+  if (val === 'wide-hv') return 'hv';
+  return 'rv';
+}
+
+function levelCategory(level) {
+  if (level === 'beginner') return 'beginner';
+  if (level === 'advanced') return 'boulder';
+  return 'all-around'; // intermediate -> all-around or boulder mix
+}
+
+function getRecommendationReason(shoe, rank) {
+  const reasons = [];
+  const toeType = answers.toeType;
+  const volKey = answers_footVolume_to_volKey(answers.footVolume);
+  const footScore = shoe.footMatch[toeType]?.[volKey] || 0;
+
+  // === 脚型匹配理由（具体到鞋的fit描述）===
+  if (footScore >= 4) {
+    reasons.push(`你的${toeType==='egyptian'?'埃及脚':toeType==='greek'?'希腊脚':'罗马脚'}${answers.footVolume.includes('wide')?'宽脚':answers.footVolume.includes('narrow')?'窄脚':''}与「${shoe.fit}」楦型高度契合`);
+  } else if (footScore >= 3 && footScore < 4) {
+    reasons.push(`${shoe.fit}的楦型设计对你的脚型匹配度良好`);
+  }
+
+  // === 材质 & 延展性（每双鞋的核心差异点）===
+  if (shoe.stretch === '几乎不延展') {
+    reasons.push(`${shoe.material}材质几乎不延展，买即合脚无需磨合期，适合怕痛的你`);
+  } else if (shoe.stretch.includes('½') || shoe.stretch.includes('1/2')) {
+    reasons.push(`${shoe.material}会延展约半码，初期略紧属正常，穿几次后完美贴合`);
+  } else if (shoe.stretch.includes('¼')) {
+    reasons.push(`${shoe.material}延展性小（约¼码），支撑力持久不松垮`);
+  }
+
+  // === 鞋底橡胶（具体到型号和厚度）===
+  if (shoe.rubber.includes('XS Grip2')) {
+    const thick = shoe.rubber.match(/\d+\.?\d*mm/)?.[0] || '';
+    if (parseFloat(thick) <= 3.5) reasons.push(`${shoe.rubber}薄底（${thick}），脚感反馈极强，能清晰感知岩点形状`);
+    else reasons.push(`${shoe.rubber}厚底（${thick}），耐磨且抓地力出色，适合长时间训练`);
+  }
+  if (shoe.rubber.includes('Trax')) reasons.push(`Evolv ${shoe.rubber}橡胶粘性强，小点和光滑面都能稳稳吸住`);
+  if (shoe.rubber.includes('VR') || shoe.rubber.includes('Dotty')) reasons.push(`Butora ${shoe.rubber}橡胶以高粘性著称，摩擦力表现优异`);
+
+  // === 闭合方式 ===
+  if (shoe.closure === '套脚' && answers.level !== 'beginner') {
+    reasons.push('套脚式设计无压迫点，整体包裹均匀，进阶攀者最爱的一体感');
+  }
+  if (shoe.closure === '魔术贴' && answers.level === 'beginner') {
+    reasons.push('魔术贴方便穿脱和微调松紧，新手友好度高');
+  }
+  if (shoe.closure === '系带') {
+    reasons.push('系带可精确调节每个区域的松紧，对脚背高低适应性好');
+  }
+
+  // === 弧度 × 硬度组合（具体场景）===
+  if (shoe.arc === '激进' && shoe.hardness === '软') {
+    reasons.push(`激进弧度+软底的组合让脚趾自然卷曲发力，抱石/短线路的"作弊器"`);
+  } else if (shoe.arc === '激进' && shoe.hardness === '中硬') {
+    reasons.push(`激进弧度配合${shoe.hardness}硬度，兼顾脚趾发力和边缘支撑，一条鞋走天下`);
+  } else if (shoe.arc === '中性' || shoe.arc === '中度') {
+    if (answers.level === 'beginner') reasons.push(`${shoe.arc}弧度对新手脚趾压力小，长时间爬不易疲劳`);
+    else reasons.push(`${shoe.arc}弧度兼容多种脚型，全能型选手的首选`);
+  }
+
+  // === 场景特长 ===
+  const topScene = Object.entries(shoe.sceneMatch).sort((a,b) => b[1]-a[1])[0];
+  const sceneNames = { boulder:'抱石', sportVertical:'运动攀(垂直)', sportSteep:'运动攀(仰角)', outdoorBoulder:'户外抱石', crack:'裂缝', trad:'传统攀', comp:'竞技', beginner:'新手入门', board:'训练板' };
+  if (topScene && topScene[1] >= 4) {
+    reasons.push(`在${sceneNames[topScene[0]]||topScene[0]}场景评分达${topScene[1]}/5，是你的主攻方向利器`);
+  }
+
+  // === 素食友好 ===
+  if (shoe.vegan) {
+    reasons.push('全合成材质，纯素友好（无动物产品）');
+  }
+
+  // === 独特卖点（从tags提取）===
+  if (shoe.tags?.includes('经典款')) reasons.push(`经久不衰的经典款，全球攀岩馆出镜率极高，口碑经过时间验证`);
+  if (shoe.tags?.includes('宽前掌')) reasons.push(`专为宽前掌设计，罗马脚/埃及脚不再挤脚趾`);
+  if (shoe.tags?.includes('窄脚专用') || shoe.tags?.includes('低体积版')) reasons.push(`低体积版本，窄脚/希腊脚穿上不会晃荡`);
+  if (shoe.tags?.includes('⚠️小趾挤压风险') && footScore >= 3) {
+    reasons.push(`⚠️ 注意：此款偏窄，建议试穿时重点确认小趾空间`);
+  }
+
+  // === 排名理由 ===
+  if (rank === 1) reasons.push('综合评分最高，是最优先推荐 ✨');
+  else if (rank === 2) reasons.push('综合评分第二，作为备选或第二双训练鞋非常合适');
+
+  // 去重并限制条数
+  return [...new Set(reasons)].slice(0, 4).join('；');
+}
+
+function getAvoidList() {
+  const toeType = answers.toeType;
+  const volKey = answers_footVolume_to_volKey(answers.footVolume);
+  return AVOID_DB.filter(a => {
+    // Keyword matching (legacy)
+    if (toeType === 'roman' && (a.shoe.includes('Ondra') || a.shoe.includes('Solution') || a.shoe.includes('D2'))) return true;
+    if ((volKey === 'hv' || answers.footVolume.includes('wide')) && a.shoe.includes('NIAD')) return true;
+    if (answers.scene?.includes('crack') && a.shoe.includes('Generator')) return true;
+    // New: brand-based matching
+    if (toeType === 'roman' && a.brands?.length) {
+      const romanDangerBrands = ['La Sportiva','Mad Rock','Evolv','So iLL','Tenaya'];
+      if (a.brands.some(b => romanDangerBrands.includes(b))) return true;
+    }
+    if ((volKey === 'hv' || answers.footVolume.includes('wide')) && a.brands?.length) {
+      const narrowBrands = ['Five Ten','Evolv','So iLL','Tenaya','La Sportiva'];
+      if (a.brands.some(b => narrowBrands.includes(b)) && (a.shoe.includes('低体积') || a.shoe.includes('Agro') || a.shoe.includes('Street') || a.shoe.includes('NIAD'))) return true;
+    }
+    if (answers.level === 'beginner' && a.brands?.length) {
+      if (a.shoe.includes('Mastia') || a.shoe.includes('适应期')) return true;
+    }
+    return false;
+  });
+}
+
+// ============================================================
+// SHOE DIAGNOSTIC ENGINE（鞋款诊断引擎）
+// ============================================================
+
+/**
+ * 诊断指定鞋款与用户脚型/需求的匹配度
+ * 返回完整的诊断报告对象
+ */
+function diagnoseShoe(shoeId) {
+  const shoe = SHOE_DB.find(s => s.id === shoeId);
+  if (!shoe) return null;
+
+  const toeType = answers.toeType;
+  const volKey = answers_footVolume_to_volKey(answers.footVolume);
+  const scenes = answers.scene || [];
+  const level = answers.level;
+  const style = answers.climbingStyle;
+
+  // === 1. 脚型匹配评分 ===
+  const footScore = shoe.footMatch[toeType]?.[volKey] || 0;
+  const footMax = 5;
+  const footPct = Math.round((footScore / footMax) * 100);
+
+  // === 2. 场景匹配评分 ===
+  let sceneTotal = 0, sceneCount = 0;
+  scenes.forEach(skey => {
+    const sobj = SCENE_MAP[skey];
+    if (sobj && shoe.sceneMatch[sobj.key] !== undefined) {
+      sceneTotal += shoe.sceneMatch[sobj.key];
+      sceneCount++;
+    }
+  });
+  const sceneAvg = sceneCount > 0 ? sceneTotal / sceneCount : 0;
+  const scenePct = Math.round((sceneAvg / 5) * 100);
+
+  // === 3. 水平/风格匹配 ===
+  let levelFit = 'mid';
+  const levelCat = levelCategory(level);
+  if (shoe.category === levelCat) levelFit = 'good';
+  else if (shoe.category === 'all-around') levelFit = 'good';
+  else if (shoe.category === 'beginner' && level === 'advanced') levelFit = 'bad';
+  else if ((shoe.category === 'boulder' || shoe.category === 'trad') && level === 'beginner') levelFit = 'bad';
+
+  // 风格匹配
+  let styleFit = 'good';
+  if (style === 'dynamic' && (shoe.hardness === '硬' || shoe.hardness === '中硬')) styleFit = 'bad';
+  else if (style === 'static' && (shoe.hardness === '软' || shoe.hardness === '极软')) styleFit = 'bad';
+
+  // === 4. 综合判定 ===
+  const totalScore = footScore * 0.4 + sceneAvg * 0.3 + (levelFit === 'good'?4:levelFit==='mid'?2.5:1) + (styleFit==='good'?3:styleFit==='mid'?2:1);
+  const totalPct = Math.min(100, Math.round((totalScore / 10) * 100));
+  let verdict, verdictClass, verdictLabel;
+  if (totalPct >= 70) { verdict = 'good'; verdictClass = 'good'; verdictLabel = '✅ 高度推荐'; }
+  else if (totalPct >= 45) { verdict = 'mid'; verdictClass = 'mid'; verdictLabel = '⚡ 可以考虑'; }
+  else { verdict = 'bad'; verdictClass = 'bad'; verdictLabel = '❌ 不太合适'; }
+
+  // === 5. 生成 Pros & Cons ===
+  const pros = [];
+  const cons = [];
+
+  // 脚型相关
+  if (footScore >= 4) {
+    pros.push(`脚型高度匹配：${toeType==='egyptian'?'埃及脚':toeType==='greek'?'希腊脚':'罗马脚'} + ${answers.footVolume.includes('wide')?'宽脚高体积':answers.footVolume.includes('narrow')?'窄脚低体积':'正常脚'} → 「${shoe.fit}」完美适配`);
+  } else if (footScore >= 3) {
+    pros.push(`脚型基本匹配：${shoe.fit} 的楦型可以接受`);
+  } else if (footScore >= 2) {
+    cons.push(`脚型一般：${shoe.fit} 对你的脚型来说不算最优，可能某些部位会有压迫感`);
+  } else {
+    cons.push(`⚠️ 脚型不匹配：${shoe.fit} 的楦型和你的脚型差异较大，前掌或后跟可能会明显不适`);
+  }
+
+  // 宽脚特殊判断
+  if (volKey === 'hv') {
+    if (shoe.fit.includes('宽') || shoe.fit.includes('高体积') || shoe.tags?.includes('宽脚首选')) {
+      pros.push('👍 宽脚友好设计，高脚背有足够空间');
+    } else if (shoe.fit.includes('窄') || shoe.id === 'agro' || shoe.id === 'street-lv' || shoe.id === 'solution-comp') {
+      cons.push('❌ 楦型偏窄，宽脚+高脚背穿进去会很紧甚至卡住');
+    } else {
+      cons.push('⚠️ 标准楦型，对宽脚高脚背来说可能需要买大半码或忍受初期挤压');
+    }
+  }
+
+  // 场景相关
+  if (sceneAvg >= 4) {
+    pros.push(`场景表现优秀：在你选择的场景(${scenes.map(s=>SCENE_MAP[s]?.label).join('/')})中综合评分高达 ${sceneAvg.toFixed(1)}/5`);
+  } else if (sceneAvg >= 2.5) {
+    pros.push(`场景表现尚可：可以应付你选择的场景，但不是最专精的方向`);
+  } else if (scenes.length > 0 && sceneAvg < 2) {
+    cons.push(`场景不太对口：这双鞋主要定位是 ${shoe.category}，和你选择的场景匹配度偏低`);
+  }
+
+  // 硬度/风格
+  if (style === 'dynamic' && (shoe.hardness === '软' || shoe.hardness === '极软')) {
+    pros.push(`${shoe.hardness}底 + 动态攀爬风格 = 绝佳触感灵敏度`);
+  } else if (style === 'static' && (shoe.hardness === '硬' || shoe.hardness === '中硬')) {
+    pros.push(`${shoe.hardness}底提供稳定支撑力，适合静态发力`);
+  } else if (style === 'dynamic' && (shoe.hardness === '硬' || shoe.hardness === '中硬')) {
+    cons.push('硬底鞋在动态线路中缺乏灵活性，踩小点时脚感较钝');
+  }
+
+  // 水平相关
+  if (level === 'beginner' && shoe.arc === '激进') {
+    cons.push('⚠️ 新手阶段穿激进弧度的鞋会加速疲劳，脚痛感强烈');
+  } else if (level === 'beginner' && shoe.arc === '中性') {
+    pros.push('中性弧度对新脚很友好，适应期短');
+  } else if (level === 'advanced' && shoe.arc === '激进') {
+    pros.push('进阶水平配激进弧度 = 充分发挥脚趾力量');
+  }
+
+  // 特殊标签加分
+  if (shoe.tags?.includes('Vegan') || shoe.vegan) {
+    pros.push('全合成材料（Vegan），无需磨合期，买即合脚');
+  }
+  if (shoe.tags?.includes('性价比')) {
+    pros.push('性价比出色，适合作为训练鞋日常使用');
+  }
+  if (shoe.tags?.includes('经典款')) {
+    pros.push('市场验证的经典型号，口碑稳定可靠');
+  }
+
+  // 罗马脚特殊警告
+  if (toeType === 'roman') {
+    if (shoe.fit.includes('不对称') || shoe.fit.includes('窄脚') || shoe.fit.includes('低体积')) {
+      cons.push('罗马脚方型前掌 + 不对称/窄楦鞋头 = 前三趾挤压风险高');
+    }
+  }
+
+  // === 6. 总结文案 ===
+  const toeName = toeType === 'egyptian' ? '埃及脚' : toeType === 'greek' ? '希腊脚' : '罗马脚';
+  const volName = volKey === 'hv' ? '宽脚高脚背' : volKey === 'lv' ? '窄脚低脚背' : '正常脚';
+  let summary = '';
+  if (verdict === 'good') {
+    summary = `「${shoe.name}」和你的脚型匹配度较高。作为 ${shoe.brandFlag} ${shoe.brand} 的 ${shoe.category} 定位鞋款，其 ${shoe.fit} 的楦型、${shoe.hardness} 的硬度、以及 ${shoe.arc} 的弧度都与你 ${toeName} + ${volName} 的特征比较契合${level==='beginner'?'（但新手注意循序渐进）':''}。`;
+  } else if (verdict === 'mid') {
+    summary = `「${shoe.name}」属于"能穿但不是最优解"。它的 ${shoe.fit} 楦型和你的 ${toeName} 匹配程度一般，在某些维度上表现不错（如${pros[0]?pros[0].split('：')[0]:'部分参数'}），但也有需要注意的点（如${cons[0]||'需要试穿确认'}）。建议去实体店试穿后再决定。`;
+  } else {
+    summary = `坦率地说，「${shoe.name}」不太适合你。主要问题在于${cons[0]?.replace(/[⚠️❌]/g,'').trim()||'脚型/需求不匹配'}。如果你非常钟意这双鞋，建议先租用或借朋友的试试——攀岩鞋的舒适感只有穿上才知道。`;
+  }
+
+  return {
+    shoe,
+    verdict, verdictClass, verdictLabel,
+    scores: { foot: { value: footScore, max: footMax, pct: footPct }, scene: { value: sceneAvg, max: 5, pct: scenePct }, total: totalPct },
+    pros, cons, summary,
+    sceneData: scenes.map(skey => ({ label: SCENE_MAP[skey]?.label || skey, score: shoe.sceneMatch[SCENE_MAP[skey]?.key] || 0 }))
+  };
+}
+
+/**
+ * 渲染诊断结果卡片 HTML
+ */
+function renderDiagnosticResult(diag) {
+  if (!diag) return '<div class="diag-summary-text" style="color:#ef4444;">未找到该鞋款</div>';
+
+  const { shoe, verdict, verdictClass, verdictLabel, scores, pros, cons, summary, sceneData } = diag;
+
+  const scoreClass = v => v >= 80 ? 'excellent' : v >= 60 ? 'good-val' : v >= 40 ? 'fair' : 'poor';
+  const sceneFillClass = v => v >= 4 ? 'high' : v >= 2.5 ? 'mid' : 'low';
+
+  const sceneBarsHtml = sceneData.length > 0 ? `
+    <div class="diag-scene-bar">
+      <div class="diag-analysis-title">📊 场景适配度</div>
+      ${sceneData.map(s => `
+        <div class="diag-scene-row">
+          <span class="diag-scene-label">${s.label}</span>
+          <div class="diag-scene-track"><div class="diag-scene-fill ${sceneFillClass(s.score)}" style="width:${Math.max(s.score*20,4)}%"></div></div>
+          <span style="font-size:12px;color:#6b7280;min-width:22px;text-align:right;">${s.score}</span>
+        </div>
+      `).join('')}
+    </div>
+  ` : '';
+
+  return `
+    <div class="diag-result-card visible ${verdict==='bad'?'verdict-bad':verdict==='mid'?'verdict-mid':''}">
+      <div class="diag-header">
+        <div class="diag-header-info">
+          <h4>${shoe.name}</h4>
+          <span class="diag-brand-sub">${shoe.brandFlag} ${shoe.brand} · ${shoe.category === 'boulder'?'抱石':shoe.category === 'all-around'?'全能':shoe.category === 'trad'?'传统攀':shoe.category === 'beginner'?'入门':shoe.category}</span>
+        </div>
+        <span class="diag-verdict-badge ${verdictClass}">${verdictLabel}</span>
+      </div>
+
+      <div class="diag-scores-grid">
+        <div class="diag-score-item">
+          <div class="diag-score-label">脚型匹配</div>
+          <div class="diag-score-value ${scoreClass(scores.foot.pct)}">${scores.foot.pct}%</div>
+        </div>
+        <div class="diag-score-item">
+          <div class="diag-score-label">场景匹配</div>
+          <div class="diag-score-value ${scoreClass(scores.scene.pct)}">${scores.scene.pct}%</div>
+        </div>
+        <div class="diag-score-item">
+          <div class="diag-score-label">综合推荐</div>
+          <div class="diag-score-value ${scoreClass(scores.total)}">${scores.total}%</div>
+        </div>
+      </div>
+
+      ${sceneBarsHtml}
+
+      ${pros.length > 0 ? `
+      <div class="diag-analysis-block">
+        <div class="diag-analysis-title">✅ 适合你的点</div>
+        <ul class="diag-pros-list">${pros.map(p => `<li>${p}</li>`).join('')}</ul>
+      </div>` : ''}
+
+      ${cons.length > 0 ? `
+      <div class="diag-analysis-block">
+        <div class="diag-analysis-title">⚠️ 需要注意</div>
+        <ul class="diag-cons-list">${cons.map(c => `<li>${c}</li>`).join('')}</ul>
+      </div>` : ''}
+
+      <div class="diag-summary-text"><strong>📝 结论：</strong>${summary}
+        <div style="margin-top:10px;padding-top:10px;border-top:1px dashed #d1d5db;font-size:13px;color:#6b7280;">
+          📏 尺码建议：<strong>${shoe.sizeAdvice}</strong> | 延展性：${shoe.stretch} | 鞋底橡胶：${shoe.rubber}
+          ${shoe.vegan ? ' | 🌱 Vegan' : ''}
+        </div>
+      </div>
+    </div>`;
+}
+
+// 诊断搜索 — 下拉选择器
+function initDiagnosticSearch() {
+  setTimeout(() => {
+    const selectEl = document.getElementById('diag-select');
+    if (!selectEl) return;
+
+    // 按 brand A-Z 分组
+    const brands = {};
+    SHOE_DB.forEach(s => {
+      if (!brands[s.brand]) brands[s.brand] = [];
+      brands[s.brand].push(s);
+    });
+    const sortedBrands = Object.keys(brands).sort();
+
+    sortedBrands.forEach(brand => {
+      const og = document.createElement('optgroup');
+      og.label = `${brands[brand][0].brandFlag} ${brand}`;
+      brands[brand].forEach(shoe => {
+        const opt = document.createElement('option');
+        opt.value = shoe.id;
+        opt.textContent = `${shoe.name}  (${shoe.category === 'boulder'?'抱石':shoe.category === 'all-around'?'全能':shoe.category === 'trad'?'传统攀':shoe.category})`;
+        og.appendChild(opt);
+      });
+      selectEl.appendChild(og);
+    });
+  }, 50);
+}
+
+function selectDiagnoseShoe(shoeId) {
+  const selectEl = document.getElementById('diag-select');
+  const resultEl = document.getElementById('diag-result');
+  const shoe = SHOE_DB.find(s => s.id === shoeId);
+
+  if (!shoe) return;
+
+  // Show loading
+  resultEl.innerHTML = `<div class="diag-summary-text" style="text-align:center;"><div class="spinner" style="margin:0 auto 10px;width:28px;height:28px;border-width:3px;"></div>正在分析「${shoe?.name||''}」...</div>`;
+  resultEl.querySelector('.diag-summary-text')?.classList.add('visible');
+
+  // Run diagnosis with slight delay for UX feel
+  setTimeout(() => {
+    const diag = diagnoseShoe(shoeId);
+    resultEl.innerHTML = renderDiagnosticResult(diag);
+  }, 400);
+}
+
+// ============================================================
+// RESULTS RENDERING
+// ============================================================
+function showResults() {
+  document.getElementById('quiz-area').classList.add('hidden');
+  const resultArea = document.getElementById('result-area');
+  resultArea.classList.remove('hidden');
+
+  // Show loading briefly then results
+  resultArea.innerHTML = `
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p>正在分析你的脚型和需求...</p>
+      <p style="font-size:12px;color:#9ca3af;margin-top:8px;">匹配 ${SHOE_DB.length} 款攀岩鞋数据库</p>
+    </div>
+  `;
+
+  setTimeout(() => {
+    const scored = calculateScores();
+    const topShoes = scored.slice(0, 5);
+    const avoidList = getAvoidList();
+
+    const toeLabel = STEPS[0].options.find(o=>o.value===answers.toeType)?.label || '';
+    const volLabel = STEPS[1].options.find(o=>o.value===answers.footVolume)?.label || '';
+    const levelLabel = STEPS[2].options.find(o=>o.value===answers.level)?.label || '';
+    const sceneLabels = (answers.scene||[]).map(s => SCENE_MAP[s]?.label || s).join('、') || '';
+    const styleLabel = STEPS[4].options.find(o=>o.value===answers.climbingStyle)?.label || '';
+
+    let shoesHtml = topShoes.map((item, idx) => {
+      const isBest = idx === 0;
+      return `
+        <div class="shoe-card ${isBest?'best-match':''}">
+          <div class="rank-badge">${isBest ? '🏆 最佳匹配' : `第 ${idx+1} 推荐`}</div>
+          <div class="shoe-name">${item.name} ${item.brandFlag}</div>
+          <div class="shoe-brand">${item.brand} · 综合评分 ${item.score}</div>
+          <div class="shoe-tags">
+            <span class="tag">${item.arc}</span>
+            <span class="tag">${item.hardness}</span>
+            <span class="tag">👟 ${item.fit}</span>
+            <span class="tag">🔧 ${item.closure}</span>
+            <span class="tag">🫳 ${item.rubber}</span>
+            ${item.vegan ? '<span class="tag" style="background:#d1fae5;color:#065f46;">🌱 Vegan</span>' : ''}
+          </div>
+          <div class="shoe-reason"><strong>推荐理由：</strong>${getRecommendationReason(item, idx+1)}</div>
+          <div class="shoe-size-tip">📏 <strong>尺码建议：</strong>${item.sizeAdvice} | 延展性：${item.stretch}</div>
+        </div>
+      `;
+    }).join('');
+
+    let avoidHtml = '';
+    if (avoidList.length > 0) {
+      avoidHtml = `
+        <div class="avoid-section">
+          <h3>⚠️ 避坑提醒</h3>
+          ${avoidList.map(a => `<div class="avoid-item"><strong>${a.shoe}</strong>：${a.reason}</div>`).join('')}
+        </div>
+      `;
+    }
+
+    resultArea.innerHTML = `
+      <div class="result-section">
+        <div class="summary-banner">
+          <span class="summary-item">🦶 <strong>${toeLabel}</strong></span>
+          <span class="summary-item">👞 <strong>${volLabel}</strong></span>
+          <span class="summary-item">📈 <strong>${levelLabel}</strong></span>
+          <span class="summary-item">🎯 <strong>${sceneLabels || '未指定'}</strong></span>
+          <span class="summary-item">⚡ <strong>${styleLabel}</strong></span>
+        </div>
+
+        <h2 style="font-size:22px;font-weight:700;color:#4c1d95;margin-bottom:16px;">🎯 为你推荐的攀岩鞋</h2>
+        ${shoesHtml}
+        ${avoidHtml}
+
+        <div class="diagnostic-section">
+          <h3>🔍 鞋款诊断 — 自己选鞋我来分析</h3>
+          <p style="font-size:13px;color:#4b5563;margin-bottom:14px;">从全部 ${SHOE_DB.length} 款攀岩鞋中任选一双，我会告诉你它适不适合你的脚型和需求</p>
+          <div class="diagnostic-search-wrap">
+            <select class="diagnostic-select" id="diag-select" onchange="if(this.value){selectDiagnoseShoe(this.value)}">
+              <option value="">— 请选择品牌和型号 —</option>
+              ${(() => {
+                const brands = {};
+                SHOE_DB.forEach(s => { if (!brands[s.brand]) brands[s.brand] = []; brands[s.brand].push(s); });
+                return Object.keys(brands).sort().map(brand => {
+                  const shoes = brands[brand];
+                  return `<optgroup label="${shoes[0].brandFlag} ${brand} (${shoes.length})">` +
+                    shoes.map(s => `<option value="${s.id}">${s.name} · ${s.category==='boulder'?'抱石':s.category==='all-around'?'全能':'传统攀'} · ${s.arc}${s.hardness}</option>`).join('') +
+                    '</optgroup>';
+                }).join('');
+              })()}
+            </select>
+          </div>
+          <div id="diag-result"></div>
+        </div>
+
+        <div class="info-box">
+          💡 <strong>温馨提示：</strong>以上推荐基于权威攀岩数据源（Climbing.com / ClimbingHouse / Ocún 官方 / Climb On Equipment），但<strong>每个人的脚都是独特的</strong>，强烈建议在购买前去实体店试穿确认。试穿时请赤脚或穿薄袜，确保脚后跟完全贴合，脚趾自然弯曲轻触鞋头但不痛。
+        </div>
+
+        <button class="restart-btn" onclick="startQuiz()">🔄 重新测试</button>
+      </div>
+    `;
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 900);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+renderProgressDotsOnly();
+function renderProgressDotsOnly() {
+  let dotsHtml = '';
+  for (let i = 0; i < STEPS.length; i++) {
+    dotsHtml += `<div class="progress-dot"></div>`;
+  }
+  const pb = document.getElementById('progress-bar');
+  if (pb) pb.innerHTML = dotsHtml;
+}
+</script>
+</body>
+</html>
